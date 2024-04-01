@@ -18,25 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundImage" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-6k-5ry">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background1" translatesAutoresizingMaskIntoConstraints="NO" id="DRU-6k-5ry">
                                 <rect key="frame" x="-4" y="0.0" width="401" height="818"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mersin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Lz-70e">
                                 <rect key="frame" x="15" y="110.00000000000001" width="363" height="39.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
-                                <color key="textColor" name="Label1"/>
+                                <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-Oy-Pbw">
                                 <rect key="frame" x="134.33333333333331" y="161.66666666666666" width="140.33333333333331" height="114.66666666666666"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="96"/>
-                                <color key="textColor" name="Label1"/>
+                                <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max: 27°   min: 16°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-LM-gfl">
                                 <rect key="frame" x="40" y="300.33333333333331" width="313" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" name="Label1"/>
+                                <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Cat2" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-AO-O24">
@@ -50,7 +50,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Почасовой">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <color key="baseForegroundColor" name="Label2"/>
+                                            <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCZ-mC-djh">
@@ -58,7 +58,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="На 3 дня">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
-                                            <color key="baseForegroundColor" name="Label2"/>
+                                            <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-kk-hyK">
@@ -91,7 +91,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Nf-Y10">
                                                             <rect key="frame" x="10" y="16" width="40" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                            <color key="textColor" name="Label1"/>
+                                                            <color key="textColor" name="TextColor1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoonCloudFastWind" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-HV-5UI">
@@ -103,7 +103,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-cE-3eN">
                                                             <rect key="frame" x="15.666666666666664" y="106" width="29" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" name="Label1"/>
+                                                            <color key="textColor" name="TextColor1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -119,54 +119,13 @@
                                                         <constraint firstAttribute="trailing" secondItem="WHO-cE-3eN" secondAttribute="trailing" constant="15.5" id="kP2-Wg-QaH"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
-                                                <color key="backgroundColor" name="MainScreenHistoryCellBackground"/>
+                                                <color key="backgroundColor" name="HistoryCellBackground"/>
                                                 <size key="customSize" width="60" height="146"/>
-                                            </collectionViewCell>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="nzi-RC-Ip0">
-                                                <rect key="frame" x="70" y="0.0" width="75" height="146"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LAT-BJ-j0e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="75" height="146"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Сейчас" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6C-3X-Zrg">
-                                                            <rect key="frame" x="10.666666666666664" y="16" width="53.999999999999993" height="18"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
-                                                            <color key="textColor" name="Label1"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoonCloudFastWind" translatesAutoresizingMaskIntoConstraints="NO" id="2sR-tc-ZGz">
-                                                            <rect key="frame" x="21.666666666666671" y="46" width="32" height="38"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="38" id="Hka-cY-6Wc"/>
-                                                            </constraints>
-                                                        </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TUN-39-reY">
-                                                            <rect key="frame" x="23" y="106" width="29" height="24"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                            <color key="textColor" name="Label1"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="TUN-39-reY" secondAttribute="trailing" constant="23" id="2Ab-sa-3mb"/>
-                                                        <constraint firstItem="A6C-3X-Zrg" firstAttribute="top" secondItem="LAT-BJ-j0e" secondAttribute="top" constant="16" id="7YS-e9-3Ki"/>
-                                                        <constraint firstItem="A6C-3X-Zrg" firstAttribute="leading" secondItem="LAT-BJ-j0e" secondAttribute="leading" constant="10.5" id="Afh-Ak-UUl"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2sR-tc-ZGz" secondAttribute="trailing" constant="21.5" id="Gjy-vi-ZSE"/>
-                                                        <constraint firstItem="TUN-39-reY" firstAttribute="leading" secondItem="LAT-BJ-j0e" secondAttribute="leading" constant="23" id="XzA-1T-EKi"/>
-                                                        <constraint firstItem="2sR-tc-ZGz" firstAttribute="leading" secondItem="LAT-BJ-j0e" secondAttribute="leading" constant="21.5" id="gyf-L7-f1h"/>
-                                                        <constraint firstItem="2sR-tc-ZGz" firstAttribute="top" secondItem="A6C-3X-Zrg" secondAttribute="bottom" constant="12" id="kNF-0K-r6g"/>
-                                                        <constraint firstAttribute="bottom" secondItem="TUN-39-reY" secondAttribute="bottom" constant="16" id="uqL-PX-5DA"/>
-                                                        <constraint firstAttribute="trailing" secondItem="A6C-3X-Zrg" secondAttribute="trailing" constant="10.5" id="wv3-bX-dOA"/>
-                                                    </constraints>
-                                                </collectionViewCellContentView>
-                                                <color key="backgroundColor" name="MainScreenNowCellBackground"/>
-                                                <size key="customSize" width="75" height="146"/>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
                                 </subviews>
-                                <color key="backgroundColor" name="MainScreenModalBackground"/>
+                                <color key="backgroundColor" name="WeatherBackground"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="325" id="49C-V8-Wz2"/>
                                     <constraint firstItem="bBH-Lb-cSP" firstAttribute="leading" secondItem="O4q-2U-n6u" secondAttribute="leading" id="6Z8-l3-ZLT"/>
@@ -215,26 +174,23 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BackgroundImage" width="390" height="844"/>
+        <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
-        <image name="MoonCloudFastWind" width="320" height="320"/>
-        <namedColor name="Label1">
-            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="Label2">
-            <color red="0.92156862745098034" green="0.92156862745098034" blue="0.96078431372549022" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainScreenHistoryCellBackground">
-            <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.20000000298023224" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainScreenModalBackground">
-            <color red="0.21176470588235294" green="0.23137254901960785" blue="0.36470588235294116" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="MainScreenNowCellBackground">
-            <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <image name="MoonCloudFastWind" width="160" height="160"/>
+        <namedColor name="HistoryCellBackground">
+            <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SeparatorColor">
             <color red="1" green="1" blue="1" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor2">
+            <color red="0.92156862745098034" green="0.92156862745098034" blue="0.96078431372549022" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="WeatherBackground">
+            <color red="0.18685089123910545" green="0.17451813463439975" blue="0.3039586018041236" alpha="0.89219387755102042" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
