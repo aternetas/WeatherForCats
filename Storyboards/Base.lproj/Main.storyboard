@@ -74,14 +74,14 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="146" id="a8P-h8-LTa"/>
                                         </constraints>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WXn-bj-MJc">
-                                            <size key="itemSize" width="128" height="128"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WXn-bj-MJc">
+                                            <size key="itemSize" width="60" height="146"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QOi-rW-dEl">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherInfoCell" id="QOi-rW-dEl" customClass="WeatherInfoCell" customModule="WeatherForCats" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="146"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ovy-40-rK9">
@@ -121,6 +121,11 @@
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" name="HistoryCellBackground"/>
                                                 <size key="customSize" width="60" height="146"/>
+                                                <connections>
+                                                    <outlet property="temperature" destination="WHO-cE-3eN" id="gjf-dT-JrP"/>
+                                                    <outlet property="time" destination="ufp-Nf-Y10" id="TKZ-dH-Xbh"/>
+                                                    <outlet property="weatherIcon" destination="0Ta-HV-5UI" id="blY-Tk-y8b"/>
+                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
@@ -167,6 +172,9 @@
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="top" secondItem="Y9d-Oy-Pbw" secondAttribute="bottom" constant="24" id="xf3-lG-Df8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -178,7 +186,7 @@
         <image name="Cat2" width="514" height="837"/>
         <image name="MoonCloudFastWind" width="160" height="160"/>
         <namedColor name="HistoryCellBackground">
-            <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="SeparatorColor">
             <color red="1" green="1" blue="1" alpha="0.30000001192092896" colorSpace="custom" customColorSpace="sRGB"/>
@@ -190,7 +198,7 @@
             <color red="0.92156862745098034" green="0.92156862745098034" blue="0.96078431372549022" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="WeatherBackground">
-            <color red="0.18685089123910545" green="0.17451813463439975" blue="0.3039586018041236" alpha="0.89219387755102042" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
