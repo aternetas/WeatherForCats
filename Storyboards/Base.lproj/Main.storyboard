@@ -144,6 +144,11 @@
                                     <constraint firstItem="B8h-a6-eDi" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="25" id="gak-5X-U3h"/>
                                     <constraint firstItem="gCZ-mC-djh" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="25" id="nQW-lN-eKA"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -171,6 +176,11 @@
                             <constraint firstItem="NaY-Lz-70e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="rjn-Rb-6bg"/>
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="top" secondItem="Y9d-Oy-Pbw" secondAttribute="bottom" constant="24" id="xf3-lG-Df8"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="blur">
+                                <integer key="value" value="7"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
