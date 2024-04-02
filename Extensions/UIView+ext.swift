@@ -10,14 +10,15 @@ import UIKit
 @IBDesignable
 extension UIView {
     
-    @IBInspectable
-    var cornerRadius: CGFloat {
-        get {
-            layer.cornerRadius
+        @IBInspectable
+        var topCornersRadius: CGFloat {
+            get {
+                layer.cornerRadius
+            }
+    
+            set {
+                layer.cornerRadius = newValue
+                layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+            }
         }
-        
-        set {
-            layer.cornerRadius = newValue
-        }
-    }
 }

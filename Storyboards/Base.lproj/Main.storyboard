@@ -46,7 +46,7 @@
                                 <rect key="frame" x="0.0" y="493" width="393" height="325"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8h-a6-eDi">
-                                        <rect key="frame" x="32" y="25" width="106" height="32"/>
+                                        <rect key="frame" x="32" y="19" width="106" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Почасовой">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -54,7 +54,7 @@
                                         </buttonConfiguration>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCZ-mC-djh">
-                                        <rect key="frame" x="273" y="25" width="88" height="32"/>
+                                        <rect key="frame" x="273" y="19" width="88" height="32"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="На 3 дня">
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
@@ -62,14 +62,14 @@
                                         </buttonConfiguration>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-kk-hyK">
-                                        <rect key="frame" x="0.0" y="61" width="393" height="1"/>
+                                        <rect key="frame" x="0.0" y="55" width="393" height="1"/>
                                         <color key="backgroundColor" name="SeparatorColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="uzo-mG-WiE"/>
                                         </constraints>
                                     </view>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-Lb-cSP">
-                                        <rect key="frame" x="0.0" y="82" width="393" height="146"/>
+                                        <rect key="frame" x="0.0" y="76" width="393" height="146"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="146" id="a8P-h8-LTa"/>
@@ -141,12 +141,12 @@
                                     <constraint firstItem="bBH-Lb-cSP" firstAttribute="top" secondItem="FjN-kk-hyK" secondAttribute="bottom" constant="20" id="SYn-tI-bXS"/>
                                     <constraint firstAttribute="trailing" secondItem="FjN-kk-hyK" secondAttribute="trailing" id="Wm7-Vf-heR"/>
                                     <constraint firstItem="FjN-kk-hyK" firstAttribute="leading" secondItem="O4q-2U-n6u" secondAttribute="leading" id="bCp-yC-oAX"/>
-                                    <constraint firstItem="B8h-a6-eDi" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="25" id="gak-5X-U3h"/>
-                                    <constraint firstItem="gCZ-mC-djh" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="25" id="nQW-lN-eKA"/>
+                                    <constraint firstItem="B8h-a6-eDi" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="19" id="gak-5X-U3h"/>
+                                    <constraint firstItem="gCZ-mC-djh" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="19" id="nQW-lN-eKA"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="14"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="topCornersRadius">
+                                        <real key="value" value="60"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
