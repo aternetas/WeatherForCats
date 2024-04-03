@@ -8,12 +8,25 @@
 import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource {
+    @IBOutlet weak var city: UILabel!
+    @IBOutlet weak var currentTemperature: UILabel!
+    @IBOutlet weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
+    let weatherService = WeatherService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.dataSource = self
+        
+        initUi()
+    }
+    
+    func initUi() {
+        let model = weatherService.getCurrentWeather()
+        city.text = model.city
+        currentTemperature.text = "\(model.currentTemperature)°"
+        maxAndMinTemperatureForToday.text = "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
     }
     
     //MARK: -UICollectionViewDataSource
@@ -26,4 +39,3 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         return cell
     }
 }
-

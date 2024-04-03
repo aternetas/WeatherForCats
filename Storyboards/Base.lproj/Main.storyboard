@@ -183,7 +183,10 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <connections>
+                        <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
+                        <outlet property="currentTemperature" destination="Y9d-Oy-Pbw" id="5Wh-Eq-woa"/>
+                        <outlet property="maxAndMinTemperatureForToday" destination="zRe-LM-gfl" id="s3m-vt-YEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
