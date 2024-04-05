@@ -9,7 +9,7 @@ import Foundation
 
 struct WeatherModel {
     let city: String
-    let currentTemperature: Int
+    let currentTemperature: Double
 //    let maxTemperatureForToday: Int
 //    let minTemperatureForToday: Int
 }

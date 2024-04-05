@@ -8,9 +8,15 @@
 import Foundation
 
 class WeatherService {
-    var weatherModel = WeatherModel(city: "", currentTemperature: 0)
+    let weatherRepository: WeatherRepository
     
-    func getCurrentWeather() -> WeatherModel {
-        WeatherModel(city: "Panama", currentTemperature: 10)
+    init(weatherRepository: WeatherRepository) {
+        self.weatherRepository = weatherRepository
+    }
+    
+    private func getCurrentWeather(city: String) {
+        weatherRepository.getWeatherData(city: city) { dto in
+            WeatherModel(city: dto.location.city, currentTemperature: dto.conditions.temperature)
+        }
     }
 }

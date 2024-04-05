@@ -14,7 +14,7 @@ class WeatherRepository {
         URL(string: "https://api.weatherapi.com/v1/current.json?key=\(KEY)&q=\(city)&aqi=no")
     }
     
-    private func getWeatherData(city: String) {
+    func getWeatherData(city: String, completionHandler: @escaping (WeatherDataDto) -> ()) {
         guard let url = getUrl(city: city) else { return }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
@@ -32,6 +32,7 @@ class WeatherRepository {
             }
             
             guard let result = result else { return }
+            completionHandler(result)
         }
         
         task.resume()

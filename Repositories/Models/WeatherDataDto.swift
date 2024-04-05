@@ -8,11 +8,11 @@
 import Foundation
 
 struct WeatherDataDto: Codable {
-    let city: String
-    let localtime: String
+    let location: WeatherDto
+    let conditions: CurrentWeatherConditionsDto
     
     enum CodingKeys: String, CodingKey {
-        case city = "name"
-        case localtime
+        case location
+        case conditions = "current"
     }
 }
