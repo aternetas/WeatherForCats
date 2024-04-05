@@ -26,7 +26,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         let model = weatherService.getCurrentWeather()
         city.text = model.city
         currentTemperature.text = "\(model.currentTemperature)°"
-        maxAndMinTemperatureForToday.text = "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
+//        maxAndMinTemperatureForToday.text = "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
     }
     
     //MARK: -UICollectionViewDataSource
