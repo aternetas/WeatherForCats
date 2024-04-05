@@ -12,7 +12,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet weak var currentTemperature: UILabel!
     @IBOutlet weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-//    let weatherService = WeatherService()
+    let weatherService = WeatherService(weatherRepository: WeatherRepository())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +23,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     }
     
     func initUi() {
-//        let model = weatherService.getCurrentWeather()
-//        city.text = model.city
-//        currentTemperature.text = "\(model.currentTemperature)°"
-//        maxAndMinTemperatureForToday.text = "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
+        weatherService.getCurrentWeather(city: "Moscow") { model in
+            DispatchQueue.main.async {
+                self.city.text = model.city
+                self.currentTemperature.text = "\(model.currentTemperature)°"
+            }
+        }
     }
     
     //MARK: -UICollectionViewDataSource

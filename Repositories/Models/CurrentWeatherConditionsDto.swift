@@ -13,7 +13,7 @@ struct CurrentWeatherConditionsDto: Codable {
     
     enum CodingKeys: String, CodingKey {
         case temperature = "temp_c"
-        case description
+        case description = "condition"
     }
 }
 

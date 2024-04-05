@@ -14,9 +14,9 @@ class WeatherService {
         self.weatherRepository = weatherRepository
     }
     
-    private func getCurrentWeather(city: String) {
+    func getCurrentWeather(city: String, completionHandler: @escaping (WeatherModel) -> () ) {
         weatherRepository.getWeatherData(city: city) { dto in
-            WeatherModel(city: dto.location.city, currentTemperature: dto.conditions.temperature)
+            completionHandler(WeatherModel(dto: dto))
         }
     }
 }

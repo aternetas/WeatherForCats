@@ -12,4 +12,14 @@ struct WeatherModel {
     let currentTemperature: Double
 //    let maxTemperatureForToday: Int
 //    let minTemperatureForToday: Int
+    
+    init(city: String, currentTemperature: Double) {
+        self.city = city
+        self.currentTemperature = currentTemperature
+    }
+    
+    init(dto: WeatherDataDto) {
+        city = dto.location.city
+        currentTemperature = dto.conditions.temperature
+    }
 }
