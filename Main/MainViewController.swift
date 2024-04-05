@@ -8,11 +8,11 @@
 import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDataSource {
-    @IBOutlet weak var city: UILabel!
-    @IBOutlet weak var currentTemperature: UILabel!
-    @IBOutlet weak var maxAndMinTemperatureForToday: UILabel!
-    @IBOutlet weak var collectionView: UICollectionView!
-    let weatherService = WeatherService(weatherRepository: WeatherRepository())
+    @IBOutlet private weak var city: UILabel!
+    @IBOutlet private weak var currentTemperature: UILabel!
+    @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    private let weatherService = WeatherService(weatherRepository: WeatherRepository())
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         initUi()
     }
     
-    func initUi() {
+    private func initUi() {
         weatherService.getCurrentWeather(city: "Moscow") { model in
             DispatchQueue.main.async {
                 self.city.text = model.city
