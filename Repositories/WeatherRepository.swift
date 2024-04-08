@@ -13,7 +13,6 @@ class WeatherRepository {
     func getWeatherData(city: String, completionHandler: @escaping (WeatherDataDto) -> ()) {
         guard let url = getUrl(city: city) else { return }
         
-        print(url)
         let task = URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data = data, error == nil else {
                 print(error!.localizedDescription)
