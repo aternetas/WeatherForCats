@@ -33,6 +33,6 @@ class WeatherRepository {
     }
     
     private func getUrl(city: String) -> URL? {
-        URL(string: "https://api.weatherapi.com/v1/current.json?key=\(KEY)&q=\(city)&aqi=no")
+        URL(string: "https://api.weatherapi.com/v1/forecast.json?key=\(KEY)&q=\(city)&days=3&aqi=no&alerts=no")
     }
 }
