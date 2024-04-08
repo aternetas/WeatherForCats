@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherDto: Codable {
+struct LocationDto: Codable {
     let city: String
     let localtime: String
     

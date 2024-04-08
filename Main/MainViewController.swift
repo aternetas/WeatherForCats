@@ -27,6 +27,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
             DispatchQueue.main.async {
                 self.city.text = model.city
                 self.currentTemperature.text = "\(model.currentTemperature)°"
+                self.maxAndMinTemperatureForToday.text =
+                    "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
             }
         }
     }

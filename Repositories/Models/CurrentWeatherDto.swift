@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CurrentWeatherConditionsDto: Codable {
+struct CurrentWeatherDto: Codable {
     let temperature: Double
     let description: WeatherDescription
     
