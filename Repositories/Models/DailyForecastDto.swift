@@ -15,7 +15,7 @@ struct DailyForecastDto: Codable {
     let date: String
     let dateEpoch: Int
     let astro: AstroConditionsDto
-    let hourlyWeather: HourlyWeatherDto
+    let hourlyWeather: [HourlyWeatherDto]
     
     enum CodingKeys: String, CodingKey {
         //MARK: -currently used
