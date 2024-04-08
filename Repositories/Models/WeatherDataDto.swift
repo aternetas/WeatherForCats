@@ -7,6 +7,7 @@
 
 import Foundation
 
+//start dto
 struct WeatherDataDto: Codable {
     let location: LocationDto
     let currentWeather: CurrentWeatherDto
