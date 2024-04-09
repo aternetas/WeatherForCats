@@ -8,7 +8,11 @@
 import Foundation
 
 class WeatherRepository {
-    private let KEY: String = ""
+    private let KEY: String
+    
+    init() {
+        KEY = Bundle.main.object(forInfoDictionaryKey: "API_KEY") as! String
+    }
     
     func getWeatherData(city: String, completionHandler: @escaping (WeatherDataDto) -> ()) {
         guard let url = getUrl(city: city) else { return }

@@ -12,7 +12,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
-    private let weatherService = WeatherService(weatherRepository: WeatherRepository())
+    var weatherService: WeatherServiceProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

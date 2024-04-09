@@ -7,7 +7,11 @@
 
 import Foundation
 
-class WeatherService {
+protocol WeatherServiceProtocol {
+    func getCurrentWeather(city: String, completionHandler: @escaping (WeatherModel) -> ())
+}
+
+class WeatherService: WeatherServiceProtocol {
     private let weatherRepository: WeatherRepository
     
     init(weatherRepository: WeatherRepository) {
