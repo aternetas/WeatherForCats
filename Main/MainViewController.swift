@@ -13,8 +13,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
     var weatherService: WeatherServiceProtocol!
-    private var weatherModel: WeatherModel!
-    private var hourlyModelPos = 0
+    private var weatherModel: WeatherModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,21 +32,26 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
                 self.currentTemperature.text = "\(model.currentTemperature)°"
                 self.maxAndMinTemperatureForToday.text =
                     "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
+                
+                self.collectionView.reloadData()
             }
         }
     }
     
     //MARK: -UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        weatherModel.hourlyForecast.count
+        guard let count = weatherModel?.hourlyForecast.count else { return 0 }
+        return count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
         
-        cell.bind(model: weatherModel.hourlyForecast[hourlyModelPos])
-        hourlyModelPos += 1
-        
+        guard let model = weatherModel?.hourlyForecast[indexPath.item] else {
+            fatalError("collectionView.count == 0")
+        }
+        cell.bind(model: model)
+
         return cell
     }
 }
