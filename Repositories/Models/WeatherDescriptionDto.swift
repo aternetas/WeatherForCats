@@ -9,9 +9,9 @@ import Foundation
 
 struct WeatherDescriptionDto: Codable {
     //MARK: -currently used
-    let text: String
+    let code: Int
     
     //MARK: -currently unused
+    let text: String
     let icon: String
-    let code: Int
 }

@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
         let weatherRepository = WeatherRepository()
         
-        initialViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
+        initialViewController.weatherService = WeatherServiceMock()
 
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
