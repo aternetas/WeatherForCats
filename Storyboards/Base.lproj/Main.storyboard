@@ -121,6 +121,11 @@
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" name="HistoryCellBackground"/>
                                                 <size key="customSize" width="60" height="146"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="topCornersRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="temperature" destination="WHO-cE-3eN" id="gjf-dT-JrP"/>
                                                     <outlet property="time" destination="ufp-Nf-Y10" id="TKZ-dH-Xbh"/>
