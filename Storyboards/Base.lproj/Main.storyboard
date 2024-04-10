@@ -68,9 +68,8 @@
                                             <constraint firstAttribute="height" constant="1" id="uzo-mG-WiE"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-Lb-cSP">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-Lb-cSP">
                                         <rect key="frame" x="0.0" y="76" width="393" height="146"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="146" id="a8P-h8-LTa"/>
                                         </constraints>
@@ -78,11 +77,11 @@
                                             <size key="itemSize" width="60" height="146"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherInfoCell" id="QOi-rW-dEl" customClass="WeatherInfoCell" customModule="WeatherForCats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="146"/>
+                                                <rect key="frame" x="7" y="0.0" width="60" height="146"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ovy-40-rK9">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="146"/>
@@ -94,7 +93,7 @@
                                                             <color key="textColor" name="TextColor1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoonCloudFastWind" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-HV-5UI">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="116" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-HV-5UI">
                                                             <rect key="frame" x="8" y="50" width="44" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="oKg-Cv-8Lf"/>
@@ -107,6 +106,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="tintColor" name="HistoryCellBackground"/>
                                                     <constraints>
                                                         <constraint firstItem="ufp-Nf-Y10" firstAttribute="top" secondItem="ovy-40-rK9" secondAttribute="top" constant="16" id="0oT-vJ-yxK"/>
                                                         <constraint firstItem="WHO-cE-3eN" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="10" id="8oc-Rj-5nk"/>
@@ -200,9 +200,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="116" width="64" height="64"/>
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
-        <image name="MoonCloudFastWind" width="160" height="160"/>
         <namedColor name="HistoryCellBackground">
             <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>

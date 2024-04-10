@@ -17,13 +17,17 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.dataSource = self
-        
+
+        setupUi()
         getData()
     }
     
-    private func setupUi(model: WeatherModel) {
+    private func setupUi() {
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+    }
+    
+    private func setupWeather(model: WeatherModel) {
         DispatchQueue.main.async {
             self.city.text = model.city
             self.currentTemperature.text = "\(model.currentTemperature)°"
@@ -37,7 +41,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     private func getData() {
         weatherService.getCurrentWeather(city: "Moscow") { model in
             self.hourlyForecasts = model.hourlyForecast
-            self.setupUi(model: model)
+            self.setupWeather(model: model)
         }
     }
     
