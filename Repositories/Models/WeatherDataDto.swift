@@ -7,12 +7,15 @@
 
 import Foundation
 
+//start dto
 struct WeatherDataDto: Codable {
-    let location: WeatherDto
-    let conditions: CurrentWeatherConditionsDto
+    let location: LocationDto
+    let currentWeather: CurrentWeatherDto
+    let forecast: ForecastDto
     
     enum CodingKeys: String, CodingKey {
         case location
-        case conditions = "current"
+        case currentWeather = "current"
+        case forecast
     }
 }
