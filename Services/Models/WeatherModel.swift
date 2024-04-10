@@ -12,7 +12,7 @@ struct WeatherModel {
     let currentTemperature: Double
     let maxTemperatureForToday: Double
     let minTemperatureForToday: Double
-    var hourlyForecast: [HourlyWeatherModel]
+    let hourlyForecast: [HourlyWeatherModel]
     
     init(city: String, 
          currentTemperature: Double,
@@ -34,15 +34,9 @@ struct WeatherModel {
             maxTemperatureForToday = dailyForecast.averageDailyWeather.maxTemperature
             minTemperatureForToday = dailyForecast.averageDailyWeather.minTemperature
             
-            let perHour = dailyForecast.hourlyWeather
-            var hourModels: [HourlyWeatherModel] = []
-            perHour.forEach { hour in
-                hourModels.append(
-                    HourlyWeatherModel(time: hour.time, icon: hour.condition.icon, temp: hour.tempC)
-                )
+            hourlyForecast = dailyForecast.hourlyWeather.map { hour in
+                HourlyWeatherModel(time: hour.time, icon: hour.condition.icon, temp: hour.tempC)
             }
-            hourlyForecast = hourModels
-            
         } else {
             maxTemperatureForToday = 0.0
             minTemperatureForToday = 0.0

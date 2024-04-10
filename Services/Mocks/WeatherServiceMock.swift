@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherServiceMock: WeatherServiceProtocol {
     func getCurrentWeather(city: String, completionHandler: @escaping (WeatherModel) -> ()) {
-        let model = WeatherModel(city: "Panama", 
+        let model = WeatherModel(city: "Panama",
                                  currentTemperature: 0.0,
                                  maxTemperatureForToday: 3.0,
                                  minTemperatureForToday: -1.0,
@@ -19,6 +19,6 @@ class WeatherServiceMock: WeatherServiceProtocol {
                                     HourlyWeatherModel(time: "02:00", icon: "", temp: 2)
         ])
         
-        completionHandler(model)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})
     }
 }

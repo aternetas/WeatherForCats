@@ -8,9 +8,9 @@
 import UIKit
 
 class WeatherInfoCell: UICollectionViewCell {
-    @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var weatherIcon: UIImageView!
-    @IBOutlet weak var temperature: UILabel!
+    @IBOutlet private weak var time: UILabel!
+    @IBOutlet private weak var weatherIcon: UIImageView!
+    @IBOutlet private weak var temperature: UILabel!
     
     func bind(model: HourlyWeatherModel) {
         time.text = model.time
