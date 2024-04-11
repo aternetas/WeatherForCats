@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet private weak var hourlyForecastButton: UIButton!
     @IBOutlet private weak var threeDaysForecastButton: UIButton!
     @IBOutlet private weak var separator: UIView!
-    private var underlineView: UIView?
+    private var underlineView = UIView()
     
     var weatherService: WeatherServiceProtocol!
     private var hourlyForecasts: [HourlyWeatherModel]?
@@ -28,17 +28,17 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         getData()
     }
     
-    @IBAction func onClickHourlyForecastButton(_ sender: UIButton) {
-        setupUnderline(sender: sender)
+    @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
+        setupUnderline(parentFrame: sender.frame)
     }
     
-    @IBAction func onClickThreeDaysForecastButton(_ sender: UIButton) {
-        setupUnderline(sender: sender)
+    @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
+        setupUnderline(parentFrame: sender.frame)
     }
     
-    private func setupUnderline(sender: UIButton) {
+    private func setupUnderline(parentFrame: CGRect) {
         UIView.animate(withDuration: 0.3) {
-            self.underlineView?.frame = self.calcRectOfUnderline(sender: sender)
+            self.underlineView.frame = self.calcFrameOfUnderline(parentFrame: parentFrame)
         }
     }
     
@@ -46,15 +46,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
         
-        underlineView = UIView(frame: calcRectOfUnderline(sender: hourlyForecastButton))
-        underlineView?.backgroundColor = UIColor(resource: .underline)
-        weatherForecastView.addSubview(underlineView!)
-        underlineView?.isHidden = true
+        underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
+        underlineView.backgroundColor = UIColor(resource: .underline)
+        weatherForecastView.addSubview(underlineView)
+        underlineView.isHidden = true
     }
     
-    private func calcRectOfUnderline(sender: UIButton) -> CGRect {
-        let origin = CGPoint(x: sender.frame.minX, y: separator.frame.minY + 1)
-        let size = CGSize(width: sender.frame.width, height: 1.0)
+    private func calcFrameOfUnderline(parentFrame: CGRect) -> CGRect {
+        let origin = CGPoint(x: parentFrame.minX, y: separator.frame.minY + 1)
+        let size = CGSize(width: parentFrame.width, height: 1.0)
         
         return CGRect(origin: origin, size: size)
     }
@@ -68,7 +68,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
             
             self.collectionView.reloadData()
             
-            self.underlineView?.isHidden = false
+            self.underlineView.isHidden = false
         }
     }
     
