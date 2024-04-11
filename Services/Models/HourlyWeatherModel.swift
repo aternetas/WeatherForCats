@@ -8,18 +8,18 @@
 import Foundation
 
 struct HourlyWeatherModel {
-    let time: String
+    let time: Date
     let icon: String
     let temp: Double
     
-    init(time: String, icon: String, temp: Double) {
+    init(time: Date, icon: String, temp: Double) {
         self.time = time
         self.icon = icon
         self.temp = temp
     }
     
     init(dto: HourlyWeatherDto) {
-        time = dto.time
+        time = Date(timeIntervalSince1970: TimeInterval(dto.timeEpoch))
         icon = String(dto.condition.code)
         temp = dto.tempC
     }

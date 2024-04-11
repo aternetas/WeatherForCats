@@ -34,9 +34,7 @@ struct WeatherModel {
             maxTemperatureForToday = dailyForecast.averageDailyWeather.maxTemperature
             minTemperatureForToday = dailyForecast.averageDailyWeather.minTemperature
             
-            hourlyForecast = dailyForecast.hourlyWeather.map { hour in
-                HourlyWeatherModel(time: hour.time, icon: hour.condition.icon, temp: hour.tempC)
-            }
+            hourlyForecast = dailyForecast.hourlyWeather.map { HourlyWeatherModel(dto: $0) }
         } else {
             maxTemperatureForToday = 0.0
             minTemperatureForToday = 0.0

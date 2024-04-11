@@ -88,10 +88,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
         
-        guard let model = hourlyForecasts?[indexPath.item] else {
+        guard let hourlyForecastsModel = hourlyForecasts?[indexPath.item] else {
             fatalError("collectionView.count == 0")
         }
-        cell.bind(model: model)
+        cell.bind(model: hourlyForecastsModel)
 
         return cell
     }
