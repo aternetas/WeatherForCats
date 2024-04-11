@@ -12,18 +12,54 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var weatherForecastView: UIView!
+    @IBOutlet private weak var hourlyForecastButton: UIButton!
+    @IBOutlet private weak var threeDaysForecastButton: UIButton!
+    @IBOutlet private weak var separator: UIView!
+    private var underlineView = UIView()
+    
     var weatherService: WeatherServiceProtocol!
     private var hourlyForecasts: [HourlyWeatherModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.dataSource = self
-        
+
+        setupUi()
         getData()
     }
     
-    private func setupUi(model: WeatherModel) {
+    @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
+        setupUnderline(parentFrame: sender.frame)
+    }
+    
+    @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
+        setupUnderline(parentFrame: sender.frame)
+    }
+    
+    private func setupUnderline(parentFrame: CGRect) {
+        UIView.animate(withDuration: 0.3) {
+            self.underlineView.frame = self.calcFrameOfUnderline(parentFrame: parentFrame)
+        }
+    }
+    
+    private func setupUi() {
+        collectionView.dataSource = self
+        collectionView.backgroundColor = .clear
+        
+        underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
+        underlineView.backgroundColor = UIColor(resource: .underline)
+        weatherForecastView.addSubview(underlineView)
+        underlineView.isHidden = true
+    }
+    
+    private func calcFrameOfUnderline(parentFrame: CGRect) -> CGRect {
+        let origin = CGPoint(x: parentFrame.minX, y: separator.frame.minY + 1)
+        let size = CGSize(width: parentFrame.width, height: 1.0)
+        
+        return CGRect(origin: origin, size: size)
+    }
+    
+    private func setupWeather(model: WeatherModel) {
         DispatchQueue.main.async {
             self.city.text = model.city
             self.currentTemperature.text = "\(model.currentTemperature)°"
@@ -31,13 +67,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
                 "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
             
             self.collectionView.reloadData()
+            
+            self.underlineView.isHidden = false
         }
     }
     
     private func getData() {
         weatherService.getCurrentWeather(city: "Moscow") { model in
             self.hourlyForecasts = model.hourlyForecast
-            self.setupUi(model: model)
+            self.setupWeather(model: model)
         }
     }
     

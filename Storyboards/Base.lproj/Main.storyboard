@@ -52,6 +52,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onClickHourlyForecastButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J61-FN-bzi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCZ-mC-djh">
                                         <rect key="frame" x="273" y="19" width="88" height="32"/>
@@ -60,6 +63,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onClickThreeDaysForecastButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JyR-NK-h0p"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-kk-hyK">
                                         <rect key="frame" x="0.0" y="55" width="393" height="1"/>
@@ -68,9 +74,8 @@
                                             <constraint firstAttribute="height" constant="1" id="uzo-mG-WiE"/>
                                         </constraints>
                                     </view>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-Lb-cSP">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bBH-Lb-cSP">
                                         <rect key="frame" x="0.0" y="76" width="393" height="146"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="146" id="a8P-h8-LTa"/>
                                         </constraints>
@@ -78,49 +83,55 @@
                                             <size key="itemSize" width="60" height="146"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="7" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WeatherInfoCell" id="QOi-rW-dEl" customClass="WeatherInfoCell" customModule="WeatherForCats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="60" height="146"/>
+                                                <rect key="frame" x="7" y="0.0" width="60" height="146"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ovy-40-rK9">
                                                     <rect key="frame" x="0.0" y="0.0" width="60" height="146"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Nf-Y10">
-                                                            <rect key="frame" x="10" y="16" width="40" height="18"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ufp-Nf-Y10">
+                                                            <rect key="frame" x="6" y="16" width="48" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" name="TextColor1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoonCloudFastWind" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-HV-5UI">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="116" translatesAutoresizingMaskIntoConstraints="NO" id="0Ta-HV-5UI">
                                                             <rect key="frame" x="8" y="50" width="44" height="38"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="38" id="oKg-Cv-8Lf"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-cE-3eN">
-                                                            <rect key="frame" x="15.666666666666664" y="106" width="29" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="19°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHO-cE-3eN">
+                                                            <rect key="frame" x="10" y="106" width="40" height="24"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                             <color key="textColor" name="TextColor1"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <color key="tintColor" name="HistoryCellBackground"/>
                                                     <constraints>
                                                         <constraint firstItem="ufp-Nf-Y10" firstAttribute="top" secondItem="ovy-40-rK9" secondAttribute="top" constant="16" id="0oT-vJ-yxK"/>
-                                                        <constraint firstItem="WHO-cE-3eN" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="15.5" id="8oc-Rj-5nk"/>
+                                                        <constraint firstItem="WHO-cE-3eN" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="10" id="8oc-Rj-5nk"/>
                                                         <constraint firstItem="0Ta-HV-5UI" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="8" id="Fe7-Po-Xrc"/>
                                                         <constraint firstItem="0Ta-HV-5UI" firstAttribute="top" secondItem="ufp-Nf-Y10" secondAttribute="bottom" constant="16" id="MWZ-YT-X7U"/>
-                                                        <constraint firstItem="ufp-Nf-Y10" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="10" id="Nrf-F8-a8m"/>
+                                                        <constraint firstItem="ufp-Nf-Y10" firstAttribute="leading" secondItem="ovy-40-rK9" secondAttribute="leading" constant="6" id="Nrf-F8-a8m"/>
                                                         <constraint firstAttribute="trailing" secondItem="0Ta-HV-5UI" secondAttribute="trailing" constant="8" id="Xcm-tA-2sr"/>
                                                         <constraint firstAttribute="bottom" secondItem="WHO-cE-3eN" secondAttribute="bottom" constant="16" id="XwS-vM-wHF"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ufp-Nf-Y10" secondAttribute="trailing" constant="10" id="e6p-se-27Y"/>
-                                                        <constraint firstAttribute="trailing" secondItem="WHO-cE-3eN" secondAttribute="trailing" constant="15.5" id="kP2-Wg-QaH"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ufp-Nf-Y10" secondAttribute="trailing" constant="6" id="e6p-se-27Y"/>
+                                                        <constraint firstAttribute="trailing" secondItem="WHO-cE-3eN" secondAttribute="trailing" constant="10" id="kP2-Wg-QaH"/>
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" name="HistoryCellBackground"/>
                                                 <size key="customSize" width="60" height="146"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="topCornersRadius">
+                                                        <real key="value" value="30"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <outlet property="temperature" destination="WHO-cE-3eN" id="gjf-dT-JrP"/>
                                                     <outlet property="time" destination="ufp-Nf-Y10" id="TKZ-dH-Xbh"/>
@@ -186,7 +197,11 @@
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
                         <outlet property="currentTemperature" destination="Y9d-Oy-Pbw" id="5Wh-Eq-woa"/>
+                        <outlet property="hourlyForecastButton" destination="B8h-a6-eDi" id="T0t-R5-xDj"/>
                         <outlet property="maxAndMinTemperatureForToday" destination="zRe-LM-gfl" id="s3m-vt-YEW"/>
+                        <outlet property="separator" destination="FjN-kk-hyK" id="135-fj-wjB"/>
+                        <outlet property="threeDaysForecastButton" destination="gCZ-mC-djh" id="PVK-4o-D8f"/>
+                        <outlet property="weatherForecastView" destination="O4q-2U-n6u" id="l5B-tk-T12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -195,9 +210,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="116" width="64" height="64"/>
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
-        <image name="MoonCloudFastWind" width="160" height="160"/>
         <namedColor name="HistoryCellBackground">
             <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
