@@ -52,6 +52,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onClickHourlyForecastButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J61-FN-bzi"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCZ-mC-djh">
                                         <rect key="frame" x="273" y="19" width="88" height="32"/>
@@ -60,6 +63,9 @@
                                             <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="15"/>
                                             <color key="baseForegroundColor" name="TextColor2"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="onClickThreeDaysForecastButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JyR-NK-h0p"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjN-kk-hyK">
                                         <rect key="frame" x="0.0" y="55" width="393" height="1"/>
@@ -191,7 +197,11 @@
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
                         <outlet property="currentTemperature" destination="Y9d-Oy-Pbw" id="5Wh-Eq-woa"/>
+                        <outlet property="hourlyForecastButton" destination="B8h-a6-eDi" id="T0t-R5-xDj"/>
                         <outlet property="maxAndMinTemperatureForToday" destination="zRe-LM-gfl" id="s3m-vt-YEW"/>
+                        <outlet property="separator" destination="FjN-kk-hyK" id="135-fj-wjB"/>
+                        <outlet property="threeDaysForecastButton" destination="gCZ-mC-djh" id="PVK-4o-D8f"/>
+                        <outlet property="weatherForecastView" destination="O4q-2U-n6u" id="l5B-tk-T12"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

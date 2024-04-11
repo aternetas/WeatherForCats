@@ -12,6 +12,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var weatherForecastView: UIView!
+    @IBOutlet private weak var hourlyForecastButton: UIButton!
+    @IBOutlet private weak var threeDaysForecastButton: UIButton!
+    @IBOutlet private weak var separator: UIView!
+    private var underlineView: UIView?
+    
     var weatherService: WeatherServiceProtocol!
     private var hourlyForecasts: [HourlyWeatherModel]?
     
@@ -22,9 +28,35 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         getData()
     }
     
+    @IBAction func onClickHourlyForecastButton(_ sender: UIButton) {
+        setupUnderline(sender: sender)
+    }
+    
+    @IBAction func onClickThreeDaysForecastButton(_ sender: UIButton) {
+        setupUnderline(sender: sender)
+    }
+    
+    private func setupUnderline(sender: UIButton) {
+        UIView.animate(withDuration: 0.3) {
+            self.underlineView?.frame = self.calcRectOfUnderline(sender: sender)
+        }
+    }
+    
     private func setupUi() {
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
+        
+        underlineView = UIView(frame: calcRectOfUnderline(sender: hourlyForecastButton))
+        underlineView?.backgroundColor = UIColor(resource: .underline)
+        weatherForecastView.addSubview(underlineView!)
+        underlineView?.isHidden = true
+    }
+    
+    private func calcRectOfUnderline(sender: UIButton) -> CGRect {
+        let origin = CGPoint(x: sender.frame.minX, y: separator.frame.minY + 1)
+        let size = CGSize(width: sender.frame.width, height: 1.0)
+        
+        return CGRect(origin: origin, size: size)
     }
     
     private func setupWeather(model: WeatherModel) {
@@ -35,6 +67,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
                 "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
             
             self.collectionView.reloadData()
+            
+            self.underlineView?.isHidden = false
         }
     }
     
