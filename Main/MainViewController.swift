@@ -19,11 +19,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     private var underlineView = UIView()
     
     var weatherService: WeatherServiceProtocol!
-    private var hourlyForecasts: [HourlyWeatherModel]?
+    private var hourlyForecasts: [HourlyWeatherModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUi()
         getData()
     }
@@ -86,16 +86,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     
     //MARK: -UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = hourlyForecasts?.count else { return 0 }
-        return count
+        return hourlyForecasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
-        
-        guard let hourlyForecastsModel = hourlyForecasts?[indexPath.item] else {
-            fatalError("collectionView.count == 0")
-        }
+        let hourlyForecastsModel = hourlyForecasts[indexPath.item]
         cell.bind(model: hourlyForecastsModel)
 
         return cell

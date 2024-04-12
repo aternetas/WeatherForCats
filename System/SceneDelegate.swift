@@ -12,16 +12,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-        let weatherRepository = WeatherRepository()
         
-//        initialViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
-        initialViewController.weatherService = WeatherServiceMock()
-
-        window?.rootViewController = initialViewController
-        window?.makeKeyAndVisible()
-
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+            let storyboard = UIStoryboard(name: "Main", bundle: .main)
+            let initialViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+            
+//            let weatherRepository = WeatherRepository()
+            
+//            initialViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
+            initialViewController.weatherService = WeatherServiceMock()
+            
+            window.rootViewController = initialViewController
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
 

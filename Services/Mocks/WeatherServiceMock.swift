@@ -25,6 +25,6 @@ class WeatherServiceMock: WeatherServiceProtocol {
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712923368)), icon: 1207, temp: 0, isNow: false) //пятница, 12 апреля 2024 г., 15:02:48
         ])
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})
     }
 }
