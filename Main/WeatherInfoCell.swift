@@ -13,7 +13,11 @@ class WeatherInfoCell: UICollectionViewCell {
     @IBOutlet private weak var temperature: UILabel!
     
     func bind(model: HourlyWeatherModel) {
-        time.text = model.time.toHourMinute()
+        time.text = if model.isNow == true {
+            "Cейчас"
+        } else {
+            model.time.toHourMinute()
+        }
         weatherIcon.image = getImageIcon(weatherType: WeatherType(rawValue: model.iconCode) ?? WeatherType.sunny, isDay: true)
 //        weatherIcon.image = UIImage(named: "\(model.icon)")
         temperature.text = "\(model.temp)°"
