@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -44,6 +44,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     
     private func setupUi() {
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundColor = .clear
         
         underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
@@ -95,5 +96,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
         cell.bind(model: hourlyForecastsModel)
 
         return cell
+    }
+    
+    //MARK: -UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: !hourlyForecasts[indexPath.item].isNow ? 64 : 75, height: 146)
     }
 }
