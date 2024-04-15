@@ -91,7 +91,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
-        cell.bind(model: hourlyForecasts[indexPath.item])
+        
+        
+//        cell.bind(model: hourlyForecasts[indexPath.item])
+        cell.bind(model: WeatherInfoCellModel(hourlyWeatherModel: hourlyForecasts[indexPath.item]))
+        
+        
 
         return cell
     }
