@@ -16,11 +16,11 @@ class WeatherInfoCell: UICollectionViewCell {
         time.text = model.isNow ? "Сейчас" : model.time.toHourMinute()
         backgroundColor = UIColor(resource: model.isNow ? .nowCellBackground : .historyCellBackground)
         
-        weatherIcon.image = getImageIcon(weatherType: model.weatherType, isDay: model.isDay)
+        weatherIcon.image = getWeatherIcon(weatherType: model.weatherType, isDay: model.isDay)
         temperature.text = "\(model.temp)°"
     }
     
-    func getImageIcon(weatherType: WeatherType, isDay: Bool) -> UIImage? {
+    private func getWeatherIcon(weatherType: WeatherType, isDay: Bool) -> UIImage? {
         let iconName = switch weatherType {
         case .sunny: 113
         case .partlyCloudy: 116
