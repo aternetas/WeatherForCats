@@ -11,13 +11,12 @@ struct CurrentWeatherDto: Codable {
     //MARK: -currently used
     let temperature: Double
     let description: WeatherDescriptionDto
-    
+    let isDay: Int
     
     //MARK: -currently unused
     let lastUpdatedEpoch: Int
     let lastUpdated: String
     let tempF: Double
-    let isDay: Int
     let windMph, windKph: Double
     let windDegree: Int
     let windDir: WindDir
@@ -32,13 +31,13 @@ struct CurrentWeatherDto: Codable {
     enum CodingKeys: String, CodingKey {
         //MARK: -currently used
         case temperature = "temp_c"
+        case isDay = "is_day"
         case description = "condition"
         
         //MARK: -currently unused
         case lastUpdatedEpoch = "last_updated_epoch"
         case lastUpdated = "last_updated"
         case tempF = "temp_f"
-        case isDay = "is_day"
         case windMph = "wind_mph"
         case windKph = "wind_kph"
         case windDegree = "wind_degree"

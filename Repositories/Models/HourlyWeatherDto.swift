@@ -11,12 +11,12 @@ struct HourlyWeatherDto: Codable {
     //MARK: -currently used
     let timeEpoch: Int
     let tempC: Double
+    let isDay: Int
     let condition: WeatherDescriptionDto
     
     //MARK: -currently unused
     let time: String
     let tempF: Double
-    let isDay: Int
     let windMph, windKph: Double
     let windDegree: Int
 //    let windDir: WindDir
@@ -36,12 +36,12 @@ struct HourlyWeatherDto: Codable {
         //MARK: -currently used
         case timeEpoch = "time_epoch"
         case tempC = "temp_c"
+        case isDay = "is_day"
         case condition
         
         //MARK: -currently unused
         case time
         case tempF = "temp_f"
-        case isDay = "is_day"
         case windMph = "wind_mph"
         case windKph = "wind_kph"
         case windDegree = "wind_degree"
