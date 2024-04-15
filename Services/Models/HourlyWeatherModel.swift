@@ -24,7 +24,7 @@ struct HourlyWeatherModel {
     
     init(dto: HourlyWeatherDto) {
         time = Date(timeIntervalSince1970: TimeInterval(dto.timeEpoch))
-        isDay = dto.isDay == 1 ? true : false
+        isDay = dto.isDay == 1
         iconCode = dto.condition.code
         temp = dto.tempC
         isNow = false

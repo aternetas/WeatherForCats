@@ -20,10 +20,8 @@ class WeatherInfoCell: UICollectionViewCell {
         temperature.text = "\(model.temp)°"
     }
     
-    private func getImageIcon(weatherType: WeatherType, isDay: Bool) -> UIImage? {
-        var iconName = 113
-
-        iconName = switch weatherType {
+    func getImageIcon(weatherType: WeatherType, isDay: Bool) -> UIImage? {
+        let iconName = switch weatherType {
         case .sunny: 113
         case .partlyCloudy: 116
         case .cloudy: 119
@@ -73,6 +71,6 @@ class WeatherInfoCell: UICollectionViewCell {
         case .moderateOrHeavySnowWithThunder: 392
         }
         
-        return UIImage(named: isDay ? "Day/\(iconName)" : "Night/\(iconName)")
+        return UIImage(named: "\(isDay ? "Day/" : "Night")/\(iconName)")
     }
 }
