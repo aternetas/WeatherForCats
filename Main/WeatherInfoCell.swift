@@ -16,7 +16,7 @@ class WeatherInfoCell: UICollectionViewCell {
         time.text = model.isNow ? "Сейчас" : model.time.toHourMinute()
         backgroundColor = UIColor(resource: model.isNow ? .nowCellBackground : .historyCellBackground)
         
-        weatherIcon.image = getImageIcon(weatherType: WeatherType(rawValue: model.iconCode) ?? WeatherType.sunny, isDay: model.isDay)
+        weatherIcon.image = getImageIcon(weatherType: model.weatherType, isDay: model.isDay)
         temperature.text = "\(model.temp)°"
     }
     

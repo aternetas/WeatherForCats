@@ -10,23 +10,23 @@ import Foundation
 struct HourlyWeatherModel {
     let time: Date
     let isDay: Bool
-    let iconCode: Int
     let temp: Double
     let isNow: Bool
+    let weatherType: WeatherType
     
-    init(time: Date, isDay: Bool, icon: Int, temp: Double, isNow: Bool) {
+    init(time: Date, isDay: Bool, temp: Double, isNow: Bool, weatherType: WeatherType) {
         self.time = time
         self.isDay = isDay
-        self.iconCode = icon
         self.temp = temp
         self.isNow = isNow
+        self.weatherType = weatherType
     }
     
     init(dto: HourlyWeatherDto) {
         time = Date(timeIntervalSince1970: TimeInterval(dto.timeEpoch))
         isDay = dto.isDay == 1
-        iconCode = dto.condition.code
         temp = dto.tempC
         isNow = false
+        weatherType = WeatherType(rawValue: dto.condition.code) ?? .sunny
     }
 }
