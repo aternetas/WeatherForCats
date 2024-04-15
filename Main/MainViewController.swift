@@ -76,7 +76,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func getData() {
         weatherService.getCurrentWeather(city: "Berlin") { model in
             var unsortedHourlyModels = model.hourlyForecast
-            unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: .sunny))
+            unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
             
             self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
             

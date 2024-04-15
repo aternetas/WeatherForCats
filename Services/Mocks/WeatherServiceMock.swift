@@ -11,7 +11,7 @@ class WeatherServiceMock: WeatherServiceProtocol {
     func getCurrentWeather(city: String, completionHandler: @escaping (WeatherModel) -> ()) {
         let model = WeatherModel(city: "Panama",
                                  currentTemperature: 0.0,
-                                 iconCode: 1003,
+                                 weatherType: .blowingSnow,
                                  maxTemperatureForToday: 3.0,
                                  minTemperatureForToday: -1.0, isDay: true,
                                  hourlyForecast: [

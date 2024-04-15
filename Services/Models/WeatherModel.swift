@@ -10,7 +10,7 @@ import Foundation
 struct WeatherModel {
     let city: String
     let currentTemperature: Double
-    let iconCode: Int
+    let weatherType: WeatherType
     let maxTemperatureForToday: Double
     let minTemperatureForToday: Double
     let isDay: Bool
@@ -18,14 +18,14 @@ struct WeatherModel {
     
     init(city: String, 
          currentTemperature: Double,
-         iconCode: Int,
+         weatherType: WeatherType,
          maxTemperatureForToday: Double,
          minTemperatureForToday: Double,
          isDay: Bool,
          hourlyForecast: [HourlyWeatherModel]) {
         self.city = city
         self.currentTemperature = currentTemperature
-        self.iconCode = iconCode
+        self.weatherType = weatherType
         self.maxTemperatureForToday = maxTemperatureForToday
         self.minTemperatureForToday = minTemperatureForToday
         self.isDay = isDay
@@ -35,7 +35,7 @@ struct WeatherModel {
     init(dto: WeatherDataDto) {
         city = dto.location.city
         currentTemperature = dto.currentWeather.temperature
-        iconCode = dto.currentWeather.description.code
+        weatherType = WeatherType(rawValue: dto.currentWeather.description.code) ?? .sunny
         
         if let dailyForecast = dto.forecast.dailyForecast.first {
             maxTemperatureForToday = dailyForecast.averageDailyWeather.maxTemperature
