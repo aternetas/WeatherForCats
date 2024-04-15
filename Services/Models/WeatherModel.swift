@@ -36,17 +36,15 @@ struct WeatherModel {
         city = dto.location.city
         currentTemperature = dto.currentWeather.temperature
         weatherType = WeatherType(rawValue: dto.currentWeather.description.code) ?? .sunny
+        isDay = dto.currentWeather.isDay == 1
         
         if let dailyForecast = dto.forecast.dailyForecast.first {
             maxTemperatureForToday = dailyForecast.averageDailyWeather.maxTemperature
             minTemperatureForToday = dailyForecast.averageDailyWeather.minTemperature
-            isDay = dailyForecast.hourlyWeather[0].isDay == 0
-            
             hourlyForecast = dailyForecast.hourlyWeather.map { HourlyWeatherModel(dto: $0) }
         } else {
             maxTemperatureForToday = 0.0
             minTemperatureForToday = 0.0
-            isDay = true
             hourlyForecast = []
         }
     }
