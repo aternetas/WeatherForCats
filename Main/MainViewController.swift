@@ -17,10 +17,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var threeDaysForecastButton: UIButton!
     @IBOutlet private weak var separator: UIView!
     private var underlineView = UIView()
-    
     var weatherService: WeatherServiceProtocol!
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
+    private var forecasts: [WeatherInfoCellModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,25 +85,26 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
             self.dailyForecasts = model.dailyForecast
             
+            self.forecasts = self.hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
             self.setupWeather(model: model)
         }
     }
     
     //MARK: -UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return hourlyForecasts.count
+        return forecasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
         
-        cell.bind(model: WeatherInfoCellModel(hourlyWeatherModel: hourlyForecasts[indexPath.item]))
+        cell.bind(model: forecasts[indexPath.item])
 
         return cell
     }
     
     //MARK: -UICollectionViewDelegateFlowLayout
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: !hourlyForecasts[indexPath.item].isNow ? 64 : 75, height: 146)
+        CGSize(width: !forecasts[indexPath.item].isNow ? 64 : 75, height: 146)
     }
 }
