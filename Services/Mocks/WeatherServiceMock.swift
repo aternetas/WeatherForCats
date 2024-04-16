@@ -25,9 +25,9 @@ class WeatherServiceMock: WeatherServiceProtocol {
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712119909)), isDay: true, temp: 0, isNow: false, weatherType: .cloudy), //первый: среда, 3 апреля 2024 г., 7:51:49
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712923368)), isDay: true, temp: 0, isNow: false, weatherType: .fog) //пятница, 12 апреля 2024 г., 15:02:48
         ], dailyForecast: [
-            DailyWeatherModel(date: "2024-04-16", maxTemperatureForToday: 10.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 6.0, weatherType: .cloudy),
-            DailyWeatherModel(date: "2024-04-17", maxTemperatureForToday: 14.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 8.0, weatherType: .lightRain),
-            DailyWeatherModel(date: "2024-04-18", maxTemperatureForToday: 13.5, minTemperatureForToday: 2.0, avgTemperatureForToday: 9.1, weatherType: .sunny)
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713139200)), maxTemperatureForToday: 10.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 6.0, weatherType: .cloudy), //"2024-04-15"
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713225600)), maxTemperatureForToday: 14.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 8.0, weatherType: .lightRain), //2024-04-16
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713312000)), maxTemperatureForToday: 13.5, minTemperatureForToday: 2.0, avgTemperatureForToday: 9.1, weatherType: .sunny) //2024-04-17
         ])
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})

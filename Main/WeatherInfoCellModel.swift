@@ -28,7 +28,7 @@ struct WeatherInfoCellModel {
     }
     
     init(dailyWeatherModel: DailyWeatherModel) {
-        label = dailyWeatherModel.date
+        label = dailyWeatherModel.date.toDayOfTheWeek()
         weatherType = dailyWeatherModel.weatherType
         temp = dailyWeatherModel.avgTemperatureForToday
         isNow = false

@@ -35,9 +35,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
-        print(dailyForecasts[0].date)
-        print(dailyForecasts[1].date)
-        print(dailyForecasts[2].date)
+        print(dailyForecasts[0].date.toDayOfTheWeek().lowercased())
+        print(dailyForecasts[1].date.toDayOfTheWeek().lowercased())
+        print(dailyForecasts[2].date.toDayOfTheWeek().lowercased())
     }
     
     private func setupUnderline(parentFrame: CGRect) {

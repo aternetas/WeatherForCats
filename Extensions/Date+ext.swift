@@ -13,8 +13,19 @@ fileprivate var hourMinuteFormatter: DateFormatter = {
     return formatter
 }()
 
+fileprivate var dayOfTheWeekFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "ru_RU")
+    formatter.dateFormat = "E"
+    return formatter
+}()
+
 extension Date {
     func toHourMinute() -> String {
         hourMinuteFormatter.string(from: self)
+    }
+    
+    func toDayOfTheWeek() -> String {
+        dayOfTheWeekFormatter.string(from: self)
     }
 }

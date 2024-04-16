@@ -8,13 +8,13 @@
 import Foundation
 
 struct DailyWeatherModel {
-    let date: String
+    let date: Date
     let maxTemperatureForToday: Double
     let minTemperatureForToday: Double
     let avgTemperatureForToday: Double
     let weatherType: WeatherType
     
-    init(date: String, maxTemperatureForToday: Double, minTemperatureForToday: Double, avgTemperatureForToday: Double, weatherType: WeatherType) {
+    init(date: Date, maxTemperatureForToday: Double, minTemperatureForToday: Double, avgTemperatureForToday: Double, weatherType: WeatherType) {
         self.date = date
         self.maxTemperatureForToday = maxTemperatureForToday
         self.minTemperatureForToday = minTemperatureForToday
@@ -23,7 +23,7 @@ struct DailyWeatherModel {
     }
     
     init(dto: DailyForecastDto) {
-        date = dto.date
+        date = Date(timeIntervalSince1970: TimeInterval(dto.dateEpoch))
         maxTemperatureForToday = dto.averageDailyWeather.maxTemperature
         minTemperatureForToday = dto.averageDailyWeather.minTemperature
         avgTemperatureForToday = dto.averageDailyWeather.avgTemperature
