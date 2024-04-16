@@ -9,28 +9,28 @@ import Foundation
 
 struct WeatherInfoCellModel {
     let label: String
-    let weatherType: WeatherType
     let temp: Double
     let isNow: Bool
+    let iconPath: String
     
-    init(label: String, weatherType: WeatherType, temp: Double, isNow: Bool) {
+    init(label: String, temp: Double, isNow: Bool, iconPath: String) {
         self.label = label
-        self.weatherType = weatherType
         self.temp = temp
         self.isNow = isNow
+        self.iconPath = iconPath
     }
     
     init(hourlyWeatherModel: HourlyWeatherModel) {
         label = hourlyWeatherModel.isNow ? "Сейчас" : hourlyWeatherModel.time.toHourMinute()
-        weatherType = hourlyWeatherModel.weatherType
         temp = hourlyWeatherModel.temp
         isNow = hourlyWeatherModel.isNow
+        iconPath = hourlyWeatherModel.weatherType.getWeatherIconPath(isDay: hourlyWeatherModel.isDay)
     }
     
     init(dailyWeatherModel: DailyWeatherModel) {
         label = dailyWeatherModel.date.toDayOfTheWeek().lowercased()
-        weatherType = dailyWeatherModel.weatherType
         temp = dailyWeatherModel.avgTemperatureForToday
         isNow = false
+        iconPath = dailyWeatherModel.weatherType.getWeatherIconPath(isDay: true)
     }
 }
