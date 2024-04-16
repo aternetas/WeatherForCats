@@ -19,6 +19,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private var underlineView = UIView()
     
     var weatherService: WeatherServiceProtocol!
+    private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
     
     override func viewDidLoad() {
@@ -34,6 +35,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
+        print(dailyForecasts[0].date)
+        print(dailyForecasts[1].date)
+        print(dailyForecasts[2].date)
     }
     
     private func setupUnderline(parentFrame: CGRect) {
@@ -77,8 +81,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         weatherService.getCurrentWeather(city: "Berlin") { model in
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
-            
+
             self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
+            self.dailyForecasts = model.dailyForecast
             
             self.setupWeather(model: model)
         }
@@ -92,11 +97,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
         
-        
-//        cell.bind(model: hourlyForecasts[indexPath.item])
         cell.bind(model: WeatherInfoCellModel(hourlyWeatherModel: hourlyForecasts[indexPath.item]))
-        
-        
 
         return cell
     }

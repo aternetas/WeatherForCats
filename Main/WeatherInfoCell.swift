@@ -12,16 +12,9 @@ class WeatherInfoCell: UICollectionViewCell {
     @IBOutlet private weak var weatherIcon: UIImageView!
     @IBOutlet private weak var temperature: UILabel!
     
-//    func bind(model: HourlyWeatherModel) {
-//        time.text = model.isNow ? "Сейчас" : model.time.toHourMinute()
-//        backgroundColor = UIColor(resource: model.isNow ? .nowCellBackground : .historyCellBackground)
-//        
-//        weatherIcon.image = getWeatherIcon(weatherType: model.weatherType, isDay: model.isDay)
-//        temperature.text = "\(model.temp)°"
-//    }
-    
     func bind(model: WeatherInfoCellModel) {
         time.text = model.label
+        backgroundColor = UIColor(resource: model.isNow ? .nowCellBackground : .historyCellBackground)
         weatherIcon.image = getWeatherIcon(weatherType: model.weatherType, isDay: true)
         temperature.text = "\(model.temp)°"
     }

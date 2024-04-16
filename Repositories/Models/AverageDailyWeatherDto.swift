@@ -12,6 +12,7 @@ struct AverageDailyWeatherDto: Codable {
     let maxTemperature: Double
     let minTemperature: Double
     let avgTemperature: Double
+    let condition: WeatherDescriptionDto
     
     //MARK: -currently unused
     let maxtempF, mintempF: Double
@@ -21,7 +22,6 @@ struct AverageDailyWeatherDto: Codable {
     let avgvisKM: Double
     let avgvisMiles, avghumidity, dailyWillItRain, dailyChanceOfRain: Int
     let dailyWillItSnow, dailyChanceOfSnow: Int
-    let condition: WeatherDescriptionDto
     let uv: Int
     
     enum CodingKeys: String, CodingKey {
@@ -29,6 +29,7 @@ struct AverageDailyWeatherDto: Codable {
         case maxTemperature = "maxtemp_c"
         case minTemperature = "mintemp_c"
         case avgTemperature = "avgtemp_c"
+        case condition
         
         //MARK: -currently unused
         case maxtempF = "maxtemp_f"
@@ -46,6 +47,6 @@ struct AverageDailyWeatherDto: Codable {
         case dailyChanceOfRain = "daily_chance_of_rain"
         case dailyWillItSnow = "daily_will_it_snow"
         case dailyChanceOfSnow = "daily_chance_of_snow"
-        case condition, uv
+        case uv
     }
 }
