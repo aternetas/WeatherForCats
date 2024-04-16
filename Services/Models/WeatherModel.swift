@@ -18,7 +18,6 @@ struct WeatherModel {
     //hourly forecast
     let hourlyForecast: [HourlyWeatherModel]
     
-    
     //daily forecast
     let dailyForecast: [DailyWeatherModel]
 
@@ -47,14 +46,5 @@ struct WeatherModel {
         
         dailyForecast = dto.forecast.dailyForecast.map { DailyWeatherModel(dto: $0) }
         hourlyForecast = dto.forecast.dailyForecast[0].hourlyWeather.map { HourlyWeatherModel(dto: $0) } 
-        
-        
-        
-//        if let dailyForecast = dto.forecast.dailyForecast.first {
-//            hourlyForecast = dailyForecast.hourlyWeather.map { HourlyWeatherModel(dto: $0) }
-//            
-//        } else {
-//            hourlyForecast = []
-//        }
     }
 }

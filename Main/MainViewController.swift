@@ -31,13 +31,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
+        fillOutTheForecast(forecastType: .hourlyForToday)
+        collectionView.reloadData()
     }
     
     @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
-        print(dailyForecasts[0].date.toDayOfTheWeek().lowercased())
-        print(dailyForecasts[1].date.toDayOfTheWeek().lowercased())
-        print(dailyForecasts[2].date.toDayOfTheWeek().lowercased())
+        fillOutTheForecast(forecastType: .threeDays)
+        collectionView.reloadData()
     }
     
     private func setupUnderline(parentFrame: CGRect) {
@@ -78,15 +79,23 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func getData() {
-        weatherService.getCurrentWeather(city: "Berlin") { model in
+        weatherService.getCurrentWeather(city: "Moscow") { model in
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
 
             self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
             self.dailyForecasts = model.dailyForecast
             
-            self.forecasts = self.hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
+            self.fillOutTheForecast(forecastType: .hourlyForToday)
             self.setupWeather(model: model)
+        }
+    }
+    
+    private func fillOutTheForecast(forecastType: ForecastType) {
+        forecasts = switch (forecastType) {
+            case .hourlyForToday: hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
+            
+            case .threeDays: dailyForecasts.map { WeatherInfoCellModel(dailyWeatherModel: $0)}
         }
     }
     
