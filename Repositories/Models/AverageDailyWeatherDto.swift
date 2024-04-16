@@ -11,10 +11,11 @@ struct AverageDailyWeatherDto: Codable {
     //MARK: -currently used
     let maxTemperature: Double
     let minTemperature: Double
+    let avgTemperature: Double
     
     //MARK: -currently unused
     let maxtempF, mintempF: Double
-    let avgtempC, avgtempF, maxwindMph, maxwindKph: Double
+    let avgtempF, maxwindMph, maxwindKph: Double
     let totalprecipMm, totalprecipIn: Double
     let totalsnowCM: Int
     let avgvisKM: Double
@@ -27,11 +28,11 @@ struct AverageDailyWeatherDto: Codable {
         //MARK: -currently used
         case maxTemperature = "maxtemp_c"
         case minTemperature = "mintemp_c"
+        case avgTemperature = "avgtemp_c"
         
         //MARK: -currently unused
         case maxtempF = "maxtemp_f"
         case mintempF = "mintemp_f"
-        case avgtempC = "avgtemp_c"
         case avgtempF = "avgtemp_f"
         case maxwindMph = "maxwind_mph"
         case maxwindKph = "maxwind_kph"

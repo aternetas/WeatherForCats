@@ -24,6 +24,8 @@ class WeatherServiceMock: WeatherServiceProtocol {
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712919409)), isDay: true, temp: 0, isNow: false, weatherType: .fog), // пятница, 12 апреля 2024 г., 13:56:49
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712119909)), isDay: true, temp: 0, isNow: false, weatherType: .cloudy), //первый: среда, 3 апреля 2024 г., 7:51:49
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712923368)), isDay: true, temp: 0, isNow: false, weatherType: .fog) //пятница, 12 апреля 2024 г., 15:02:48
+        ], dailyForecast: [
+            DailyWeatherModel(date: "", maxTemperatureForToday: 10.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 6.0)
         ])
         
         DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})

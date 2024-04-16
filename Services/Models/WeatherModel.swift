@@ -9,12 +9,19 @@ import Foundation
 
 struct WeatherModel {
     let city: String
+    
+    //current weather
     let currentTemperature: Double
     let weatherType: WeatherType
-    let maxTemperatureForToday: Double
-    let minTemperatureForToday: Double
     let isDay: Bool
+    
+    //hourly forecast
     let hourlyForecast: [HourlyWeatherModel]
+    
+    
+    //daily forecast
+    let dailyForecast: [DailyWeatherModel]
+
     
     init(city: String, 
          currentTemperature: Double,
@@ -22,14 +29,14 @@ struct WeatherModel {
          maxTemperatureForToday: Double,
          minTemperatureForToday: Double,
          isDay: Bool,
-         hourlyForecast: [HourlyWeatherModel]) {
+         hourlyForecast: [HourlyWeatherModel],
+         dailyForecast: [DailyWeatherModel]) {
         self.city = city
         self.currentTemperature = currentTemperature
         self.weatherType = weatherType
-        self.maxTemperatureForToday = maxTemperatureForToday
-        self.minTemperatureForToday = minTemperatureForToday
         self.isDay = isDay
         self.hourlyForecast = hourlyForecast
+        self.dailyForecast = dailyForecast
     }
     
     init(dto: WeatherDataDto) {
@@ -38,14 +45,16 @@ struct WeatherModel {
         weatherType = WeatherType(rawValue: dto.currentWeather.description.code) ?? .sunny
         isDay = dto.currentWeather.isDay == 1
         
-        if let dailyForecast = dto.forecast.dailyForecast.first {
-            maxTemperatureForToday = dailyForecast.averageDailyWeather.maxTemperature
-            minTemperatureForToday = dailyForecast.averageDailyWeather.minTemperature
-            hourlyForecast = dailyForecast.hourlyWeather.map { HourlyWeatherModel(dto: $0) }
-        } else {
-            maxTemperatureForToday = 0.0
-            minTemperatureForToday = 0.0
-            hourlyForecast = []
-        }
+        dailyForecast = dto.forecast.dailyForecast.map { DailyWeatherModel(dto: $0) }
+        hourlyForecast = dto.forecast.dailyForecast[0].hourlyWeather.map { HourlyWeatherModel(dto: $0) } 
+        
+        
+        
+//        if let dailyForecast = dto.forecast.dailyForecast.first {
+//            hourlyForecast = dailyForecast.hourlyWeather.map { HourlyWeatherModel(dto: $0) }
+//            
+//        } else {
+//            hourlyForecast = []
+//        }
     }
 }

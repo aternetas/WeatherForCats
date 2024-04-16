@@ -65,7 +65,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.city.text = model.city
             self.currentTemperature.text = "\(model.currentTemperature)°"
             self.maxAndMinTemperatureForToday.text =
-                "max: \(model.maxTemperatureForToday)°   min: \(model.minTemperatureForToday)°"
+            "max: \(model.dailyForecast[0].maxTemperatureForToday)°   min: \(model.dailyForecast[0].minTemperatureForToday)°"
             
             self.collectionView.reloadData()
             
