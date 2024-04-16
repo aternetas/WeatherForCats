@@ -9,14 +9,14 @@ import Foundation
 
 struct HourlyWeatherDto: Codable {
     //MARK: -currently used
-    let time: String
+    let timeEpoch: Int
     let tempC: Double
+    let isDay: Int
     let condition: WeatherDescriptionDto
     
     //MARK: -currently unused
-    let timeEpoch: Int
+    let time: String
     let tempF: Double
-    let isDay: Int
     let windMph, windKph: Double
     let windDegree: Int
 //    let windDir: WindDir
@@ -34,14 +34,14 @@ struct HourlyWeatherDto: Codable {
     
     enum CodingKeys: String, CodingKey {
         //MARK: -currently used
-        case time
+        case timeEpoch = "time_epoch"
         case tempC = "temp_c"
+        case isDay = "is_day"
         case condition
         
         //MARK: -currently unused
-        case timeEpoch = "time_epoch"
+        case time
         case tempF = "temp_f"
-        case isDay = "is_day"
         case windMph = "wind_mph"
         case windKph = "wind_kph"
         case windDegree = "wind_degree"

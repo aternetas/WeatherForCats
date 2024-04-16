@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -19,11 +19,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     private var underlineView = UIView()
     
     var weatherService: WeatherServiceProtocol!
-    private var hourlyForecasts: [HourlyWeatherModel]?
+    private var hourlyForecasts: [HourlyWeatherModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupUi()
         getData()
     }
@@ -44,6 +44,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     
     private func setupUi() {
         collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.backgroundColor = .clear
         
         underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
@@ -73,26 +74,30 @@ class MainViewController: UIViewController, UICollectionViewDataSource {
     }
     
     private func getData() {
-        weatherService.getCurrentWeather(city: "Moscow") { model in
-            self.hourlyForecasts = model.hourlyForecast
+        weatherService.getCurrentWeather(city: "Berlin") { model in
+            var unsortedHourlyModels = model.hourlyForecast
+            unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
+            
+            self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
+            
             self.setupWeather(model: model)
         }
     }
     
     //MARK: -UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let count = hourlyForecasts?.count else { return 0 }
-        return count
+        return hourlyForecasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
-        
-        guard let model = hourlyForecasts?[indexPath.item] else {
-            fatalError("collectionView.count == 0")
-        }
-        cell.bind(model: model)
+        cell.bind(model: hourlyForecasts[indexPath.item])
 
         return cell
+    }
+    
+    //MARK: -UICollectionViewDelegateFlowLayout
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: !hourlyForecasts[indexPath.item].isNow ? 64 : 75, height: 146)
     }
 }
