@@ -12,8 +12,7 @@ class WeatherServiceMock: WeatherServiceProtocol {
         let model = WeatherModel(city: "Panama",
                                  currentTemperature: 0.0,
                                  weatherType: .blowingSnow,
-                                 maxTemperatureForToday: 3.0,
-                                 minTemperatureForToday: -1.0, isDay: true,
+                                 isDay: true,
                                  hourlyForecast: [
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712786400)), isDay: false, temp: 9.4, isNow: false, weatherType: .fog), // четверг, 11 апреля 2024 г., 1:00:00
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712790000)), isDay: false, temp: 4.0, isNow: false, weatherType: .sunny), //четверг, 11 апреля 2024 г., 2:00:00
@@ -24,8 +23,14 @@ class WeatherServiceMock: WeatherServiceProtocol {
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712919409)), isDay: true, temp: 0, isNow: false, weatherType: .fog), // пятница, 12 апреля 2024 г., 13:56:49
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712119909)), isDay: true, temp: 0, isNow: false, weatherType: .cloudy), //первый: среда, 3 апреля 2024 г., 7:51:49
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712923368)), isDay: true, temp: 0, isNow: false, weatherType: .fog) //пятница, 12 апреля 2024 г., 15:02:48
+        ], dailyForecast: [
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713139200)), maxTemperatureForToday: 10.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 6.0, weatherType: .cloudy), //"2024-04-15"
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713225600)), maxTemperatureForToday: 14.0, minTemperatureForToday: 3.0, avgTemperatureForToday: 8.0, weatherType: .lightRain), //2024-04-16
+            DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713312000)), maxTemperatureForToday: 13.5, minTemperatureForToday: 2.0, avgTemperatureForToday: 9.1, weatherType: .sunny) //2024-04-17
         ])
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+          completionHandler(model)
+        } 
     }
 }
