@@ -24,7 +24,6 @@ extension Date {
     func toHourMinute() -> String {
         hourMinuteFormatter.string(from: self)
     }
-    
     func toDayOfTheWeek() -> String {
         dayOfTheWeekFormatter.string(from: self)
     }

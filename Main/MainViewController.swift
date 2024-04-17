@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var separator: UIView!
     private var underlineView = UIView()
     var weatherService: WeatherServiceProtocol!
+  
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
     private var forecasts: [WeatherInfoCellModel] = []
@@ -100,14 +101,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     //MARK: -UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return forecasts.count
+        forecasts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WeatherInfoCell", for: indexPath) as! WeatherInfoCell  
         cell.bind(model: forecasts[indexPath.item])
-
         return cell
     }
     

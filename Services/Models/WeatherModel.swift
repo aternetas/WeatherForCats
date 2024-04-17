@@ -24,8 +24,6 @@ struct WeatherModel {
     init(city: String, 
          currentTemperature: Double,
          weatherType: WeatherType,
-         maxTemperatureForToday: Double,
-         minTemperatureForToday: Double,
          isDay: Bool,
          hourlyForecast: [HourlyWeatherModel],
          dailyForecast: [DailyWeatherModel]) {
@@ -42,7 +40,6 @@ struct WeatherModel {
         currentTemperature = dto.currentWeather.temperature
         weatherType = WeatherType(rawValue: dto.currentWeather.description.code) ?? .sunny
         isDay = dto.currentWeather.isDay == 1
-        
         dailyForecast = dto.forecast.dailyForecast.map { DailyWeatherModel(dto: $0) }
         hourlyForecast = dto.forecast.dailyForecast[0].hourlyWeather.map { HourlyWeatherModel(dto: $0) } 
     }

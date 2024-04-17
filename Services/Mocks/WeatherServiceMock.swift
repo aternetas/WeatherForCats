@@ -30,6 +30,8 @@ class WeatherServiceMock: WeatherServiceProtocol {
             DailyWeatherModel(date: Date(timeIntervalSince1970: TimeInterval(1713312000)), maxTemperatureForToday: 13.5, minTemperatureForToday: 2.0, avgTemperatureForToday: 9.1, weatherType: .sunny) //2024-04-17
         ])
         
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1, execute: {completionHandler(model)})
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
+          completionHandler(model)
+        } 
     }
 }
