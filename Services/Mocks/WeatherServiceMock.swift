@@ -12,8 +12,7 @@ class WeatherServiceMock: WeatherServiceProtocol {
         let model = WeatherModel(city: "Panama",
                                  currentTemperature: 0.0,
                                  weatherType: .blowingSnow,
-                                 maxTemperatureForToday: 3.0,
-                                 minTemperatureForToday: -1.0, isDay: true,
+                                 isDay: true,
                                  hourlyForecast: [
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712786400)), isDay: false, temp: 9.4, isNow: false, weatherType: .fog), // четверг, 11 апреля 2024 г., 1:00:00
                                     HourlyWeatherModel(time: Date(timeIntervalSince1970: TimeInterval(1712790000)), isDay: false, temp: 4.0, isNow: false, weatherType: .sunny), //четверг, 11 апреля 2024 г., 2:00:00
