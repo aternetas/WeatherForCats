@@ -89,8 +89,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     private func fillOutTheForecast(forecastType: ForecastType) {
         forecasts = switch forecastType {
-            case .hourlyForToday:
-                hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
+            case .hourlyForToday: hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
             case .threeDays: dailyForecasts.map { WeatherInfoCellModel(dailyWeatherModel: $0) }
         }
         
