@@ -32,13 +32,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
         fillOutTheForecast(forecastType: .hourlyForToday)
-        collectionView.reloadData()
     }
     
     @IBAction private func onClickThreeDaysForecastButton(_ sender: UIButton) {
         setupUnderline(parentFrame: sender.frame)
         fillOutTheForecast(forecastType: .threeDays)
-        collectionView.reloadData()
     }
     
     private func setupUnderline(parentFrame: CGRect) {
@@ -72,8 +70,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self.maxAndMinTemperatureForToday.text =
             "max: \(model.dailyForecast[0].maxTemperatureForToday)°   min: \(model.dailyForecast[0].minTemperatureForToday)°"
             
-            self.collectionView.reloadData()
-            
             self.underlineView.isHidden = false
         }
     }
@@ -92,10 +88,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func fillOutTheForecast(forecastType: ForecastType) {
-        forecasts = switch (forecastType) {
-            case .hourlyForToday: hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
-            
-            case .threeDays: dailyForecasts.map { WeatherInfoCellModel(dailyWeatherModel: $0)}
+        forecasts = switch forecastType {
+            case .hourlyForToday:
+                hourlyForecasts.map { WeatherInfoCellModel(hourlyWeatherModel: $0) }
+            case .threeDays: dailyForecasts.map { WeatherInfoCellModel(dailyWeatherModel: $0) }
+        }
+        
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
         }
     }
     

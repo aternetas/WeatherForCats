@@ -59,7 +59,7 @@ enum WeatherType: Int {
 
 extension WeatherType {
     func getWeatherIconPath(isDay: Bool) -> String {
-        let iconName = switch self {
+        let iconCode = switch self {
         case .sunny: 113
         case .partlyCloudy: 116
         case .cloudy: 119
@@ -109,6 +109,6 @@ extension WeatherType {
         case .moderateOrHeavySnowWithThunder: 392
         }
         
-        return "\(isDay ? "Day/" : "Night")/\(iconName)"
+        return "\(isDay ? "Day/" : "Night")/\(iconCode)"
     }
 }

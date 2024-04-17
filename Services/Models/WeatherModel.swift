@@ -20,7 +20,6 @@ struct WeatherModel {
     
     //daily forecast
     let dailyForecast: [DailyWeatherModel]
-
     
     init(city: String, 
          currentTemperature: Double,
