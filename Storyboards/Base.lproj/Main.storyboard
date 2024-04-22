@@ -228,7 +228,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
             <objects>
-                <tabBarController storyboardIdentifier="TabBarController" id="brg-Ra-dW1" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" id="brg-Ra-dW1" customClass="TabBarController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mJb-7u-ZJ1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>

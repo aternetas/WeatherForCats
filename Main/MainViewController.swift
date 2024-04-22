@@ -47,6 +47,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func setupUi() {
+        title = "Прогноз"
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
