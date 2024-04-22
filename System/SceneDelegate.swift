@@ -19,14 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let initialViewController = storyboard.instantiateViewController(withIdentifier: "TabBarController") as! UITabBarController
             
-//            let weatherRepository = WeatherRepository()
             let mainViewController = storyboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
+//            let weatherRepository = WeatherRepository()
 //            mainViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
             mainViewController.weatherService = WeatherServiceMock()
             
             let searchViewController = storyboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
             
             initialViewController.setViewControllers([mainViewController, searchViewController], animated: false)
+            initialViewController.selectedIndex = UserDefaults.standard.integer(forKey: "selectedTabBarIndex")
             
             window.rootViewController = initialViewController
             self.window = window

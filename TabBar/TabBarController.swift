@@ -16,9 +16,16 @@ class TabBarController: UITabBarController {
     }
     
     private func setupUI() {
+        guard let viewControllers = viewControllers else { return }
         if let items = tabBar.items {
-            items[0].title = viewControllers?[0].title
-            items[1].title = viewControllers?[1].title
+            items[0].title = viewControllers[0].title
+            items[1].title = viewControllers[1].title
+        }
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if let items = tabBar.items {
+            UserDefaults.standard.setValue(items.firstIndex(of: item), forKey: "selectedTabBarIndex")
         }
     }
 }
