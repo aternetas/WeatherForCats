@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="brg-Ra-dW1">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -40,10 +40,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Cat2" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-AO-O24">
-                                <rect key="frame" x="15" y="349.33333333333326" width="363" height="418.66666666666674"/>
+                                <rect key="frame" x="15" y="349.33333333333326" width="363" height="369.66666666666674"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-2U-n6u">
-                                <rect key="frame" x="0.0" y="496" width="393" height="322"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-2U-n6u">
+                                <rect key="frame" x="0.0" y="517" width="393" height="252"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B8h-a6-eDi">
                                         <rect key="frame" x="32" y="19" width="106" height="32"/>
@@ -149,7 +149,7 @@
                                     <constraint firstAttribute="trailing" secondItem="bBH-Lb-cSP" secondAttribute="trailing" id="AGs-gB-L73"/>
                                     <constraint firstAttribute="trailing" secondItem="gCZ-mC-djh" secondAttribute="trailing" constant="32" id="I0j-h2-bUH"/>
                                     <constraint firstItem="bBH-Lb-cSP" firstAttribute="top" secondItem="FjN-kk-hyK" secondAttribute="bottom" constant="20" id="SYn-tI-bXS"/>
-                                    <constraint firstAttribute="bottom" secondItem="bBH-Lb-cSP" secondAttribute="bottom" constant="100" id="UeK-d4-Vtz"/>
+                                    <constraint firstAttribute="bottom" secondItem="bBH-Lb-cSP" secondAttribute="bottom" constant="30" id="UeK-d4-Vtz"/>
                                     <constraint firstAttribute="trailing" secondItem="FjN-kk-hyK" secondAttribute="trailing" id="Wm7-Vf-heR"/>
                                     <constraint firstItem="FjN-kk-hyK" firstAttribute="leading" secondItem="O4q-2U-n6u" secondAttribute="leading" id="bCp-yC-oAX"/>
                                     <constraint firstItem="B8h-a6-eDi" firstAttribute="top" secondItem="O4q-2U-n6u" secondAttribute="top" constant="19" id="gak-5X-U3h"/>
@@ -173,7 +173,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zRe-LM-gfl" secondAttribute="trailing" constant="40" id="Pv8-qC-WDq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y9d-Oy-Pbw" secondAttribute="trailing" priority="900" constant="30" id="XGY-Hf-dvj"/>
                             <constraint firstItem="DRU-6k-5ry" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-4" id="XOE-Ph-gWX"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O4q-2U-n6u" secondAttribute="bottom" id="bAw-pI-DsV"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O4q-2U-n6u" secondAttribute="bottom" id="bAw-pI-DsV"/>
                             <constraint firstItem="NaY-Lz-70e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="gJh-ER-U6q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NMT-AO-O24" secondAttribute="trailing" constant="15" id="gMs-eJ-kXs"/>
                             <constraint firstItem="NMT-AO-O24" firstAttribute="top" secondItem="zRe-LM-gfl" secondAttribute="bottom" constant="25" id="gb8-tl-f9E"/>
@@ -193,6 +193,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <tabBarItem key="tabBarItem" id="DWM-wt-5PE">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
@@ -207,6 +210,40 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55.725190839694655" y="3.5211267605633805"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="r8h-yb-jAa">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="uZp-Tv-Tue" customClass="SearchViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S4N-Su-kPv">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Dm-hY-oYM"/>
+                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" id="uYJ-P3-vpT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aD0-xy-RVX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="434" y="737"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="AdF-xL-8g6">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarController" id="brg-Ra-dW1" customClass="TabBarController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mJb-7u-ZJ1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="uZp-Tv-Tue" kind="relationship" relationship="viewControllers" id="lDY-x5-wCu"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0JB-fG-Se4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NbS-e6-2Ye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-976" y="352"/>
         </scene>
     </scenes>
     <resources>
@@ -230,6 +267,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
