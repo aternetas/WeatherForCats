@@ -16,10 +16,12 @@ class TabBarController: UITabBarController {
     }
     
     private func setupUI() {
-        guard let viewControllers = viewControllers else { return }
+        tabBar.tintColor = UIColor(resource: .textColor2)
+        tabBar.unselectedItemTintColor = .darkGray
+        
         if let items = tabBar.items {
-            items[0].title = viewControllers[0].title
-            items[1].title = viewControllers[1].title
+            items[0].image = UIImage(systemName: "cloud")?.withBaselineOffset(fromBottom: 15.0)
+            items[1].image = UIImage(systemName: "magnifyingglass")?.withBaselineOffset(fromBottom: 15.0)
         }
     }
     

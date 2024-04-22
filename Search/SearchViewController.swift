@@ -16,6 +16,5 @@ class SearchViewController: UIViewController {
     }
     
     private func setupUi() {
-        title = "Поиск"
     }
 }
