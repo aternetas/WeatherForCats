@@ -7,16 +7,22 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var noSavedCitiesLabel: UILabel!
+    private var cityForSearching: String?
+    private var savedCities: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupUi()
+        searchTextField.delegate = self
     }
     
     private func setupUi() {
+        noSavedCitiesLabel.isHidden = !savedCities.isEmpty ? true : false
+        
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 17),
             .foregroundColor: UIColor(resource: .textColor2)
@@ -29,5 +35,12 @@ class SearchViewController: UIViewController {
         searchIconContainerView.addSubview(searchIconView)
         searchTextField.leftView = searchIconContainerView
         searchTextField.leftViewMode = .always
+    }
+    
+    //MARK: -UITextFieldDelegate
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        cityForSearching = textField.text
+        searchTextField.resignFirstResponder()
+        return true
     }
 }
