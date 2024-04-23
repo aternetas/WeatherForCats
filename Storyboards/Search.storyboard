@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,19 +16,59 @@
                     <view key="view" contentMode="scaleToFill" id="2gs-pV-Fa1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Погода для котов" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-8Z-PhR">
+                                <rect key="frame" x="15" y="69" width="363" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" name="TextColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QXm-Zs-ecx">
+                                <rect key="frame" x="15" y="125.66666666666669" width="363" height="34"/>
+                                <color key="backgroundColor" name="SearchFieldBackground"/>
+                                <color key="tintColor" name="TextColor2"/>
+                                <color key="textColor" name="TextColor1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go" textContentType="address-level2"/>
+                            </textField>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Eo5-hk-ON4"/>
-                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <color key="backgroundColor" name="MainBackground"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="Eo5-hk-ON4" firstAttribute="trailing" secondItem="RAc-8Z-PhR" secondAttribute="trailing" constant="15" id="2AW-jV-32n"/>
+                            <constraint firstItem="Eo5-hk-ON4" firstAttribute="trailing" secondItem="QXm-Zs-ecx" secondAttribute="trailing" constant="15" id="4IV-Dx-VSj"/>
+                            <constraint firstItem="RAc-8Z-PhR" firstAttribute="top" secondItem="Eo5-hk-ON4" secondAttribute="top" constant="10" id="OEf-ay-FzU"/>
+                            <constraint firstItem="RAc-8Z-PhR" firstAttribute="leading" secondItem="Eo5-hk-ON4" secondAttribute="leading" constant="15" id="gyO-MQ-tZN"/>
+                            <constraint firstItem="QXm-Zs-ecx" firstAttribute="leading" secondItem="Eo5-hk-ON4" secondAttribute="leading" constant="15" id="qy4-xN-8hS"/>
+                            <constraint firstItem="QXm-Zs-ecx" firstAttribute="top" secondItem="RAc-8Z-PhR" secondAttribute="bottom" constant="23" id="sDz-pc-ork"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" id="gnv-XF-gzw"/>
+                    <connections>
+                        <outlet property="searchTextField" destination="QXm-Zs-ecx" id="jUG-8j-mSe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UZs-6T-MJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="434" y="737"/>
+            <point key="canvasLocation" x="432.82442748091603" y="736.61971830985919"/>
         </scene>
     </scenes>
     <resources>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="MainBackground">
+            <color red="0.21176470588235294" green="0.16470588235294117" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SearchFieldBackground">
+            <color red="0.1803921568627451" green="0.20000000000000001" blue="0.35294117647058826" alpha="0.68999999761581421" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor2">
+            <color red="0.92156862745098034" green="0.92156862745098034" blue="0.96078431372549022" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
