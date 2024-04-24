@@ -22,25 +22,25 @@
                                 <rect key="frame" x="-4" y="0.0" width="401" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mersin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Lz-70e">
-                                <rect key="frame" x="15" y="110.00000000000001" width="363" height="39.666666666666671"/>
+                                <rect key="frame" x="15" y="110.00000000000001" width="363" height="40.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-Oy-Pbw">
-                                <rect key="frame" x="134.33333333333331" y="161.66666666666666" width="140.33333333333331" height="114.66666666666666"/>
+                                <rect key="frame" x="134.33333333333331" y="162.66666666666666" width="140.33333333333331" height="114.66666666666666"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="96"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max: 27°   min: 16°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-LM-gfl">
-                                <rect key="frame" x="40" y="300.33333333333331" width="313" height="24"/>
+                                <rect key="frame" x="40" y="301.33333333333331" width="313" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Cat2" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-AO-O24">
-                                <rect key="frame" x="15" y="349.33333333333326" width="363" height="369.66666666666674"/>
+                                <rect key="frame" x="15" y="350.33333333333326" width="363" height="417.66666666666674"/>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-2U-n6u">
                                 <rect key="frame" x="0.0" y="517" width="393" height="252"/>
@@ -167,7 +167,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
                                 <connections>
-                                    <segue destination="KMq-jj-GWc" kind="presentation" id="31O-ui-7uf"/>
+                                    <action selector="onSearchIconClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fC8-52-61m"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -207,6 +207,7 @@
                     <tabBarItem key="tabBarItem" springLoaded="YES" id="DWM-wt-5PE">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="EMY-yD-EiJ"/>
                     <connections>
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
@@ -222,17 +223,17 @@
             </objects>
             <point key="canvasLocation" x="55.725190839694655" y="3.5211267605633805"/>
         </scene>
-        <!--View Controller-->
+        <!--Search View Controller-->
         <scene sceneID="wge-Ho-OqC">
             <objects>
-                <viewController id="KMq-jj-GWc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SearchViewController" id="KMq-jj-GWc" customClass="SearchViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ko6-6F-27M">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="374"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Какой город?" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
-                                <rect key="frame" x="4" y="0.0" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <rect key="frame" x="4" y="59" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="search" textContentType="address-level2"/>
                                 <connections>
                                     <outlet property="delegate" destination="KMq-jj-GWc" id="BIJ-kM-WaG"/>
                                 </connections>
@@ -246,11 +247,14 @@
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" constant="4" id="xSI-jT-WwO"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="393" height="56"/>
+                    <size key="freeformSize" width="393" height="374"/>
+                    <connections>
+                        <outlet property="citySearchBar" destination="xSn-b3-fXg" id="RnP-uF-fbb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-vE-blI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1044" y="-51"/>
+            <point key="canvasLocation" x="1043.5114503816794" y="60.563380281690144"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
@@ -262,13 +266,12 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="0JB-fG-Se4"/>
                         <segue destination="Wzv-tW-NDx" kind="relationship" relationship="viewControllers" id="u3W-tH-251"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NbS-e6-2Ye" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-976" y="352"/>
+            <point key="canvasLocation" x="-2573" y="616"/>
         </scene>
         <!--SettingsViewController-->
         <scene sceneID="BaL-e7-koc">
@@ -278,7 +281,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZF-k0-dcO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-120" y="617"/>
+            <point key="canvasLocation" x="-1001" y="877"/>
         </scene>
     </scenes>
     <resources>
@@ -302,7 +305,7 @@
             <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

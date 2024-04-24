@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -16,7 +16,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var hourlyForecastButton: UIButton!
     @IBOutlet private weak var threeDaysForecastButton: UIButton!
     @IBOutlet private weak var separator: UIView!
-        
+    
     var weatherService: WeatherServiceProtocol!
     var cityService: CityServiceProtocol!
     
@@ -30,6 +30,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         setupUi()
         getData()
+    }
+    
+    @IBAction func onSearchIconClick(_ sender: Any) {
+        if let searchViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") {
+            
+            if let navigationController = navigationController {
+                navigationController.pushViewController(searchViewController, animated: true)
+            }
+        }
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
