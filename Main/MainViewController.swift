@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var separator: UIView!
     private var underlineView = UIView()
     var weatherService: WeatherServiceProtocol!
+    var cityService: CityServiceProtocol!
   
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []

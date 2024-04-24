@@ -10,18 +10,20 @@ import UIKit
 class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var noSavedCitiesLabel: UILabel!
+    var cityService: CityServiceProtocol?
     private var cityForSearching: String?
     private var savedCities: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        savedCities = cityService?.getCities() ?? []
         setupUi()
         searchTextField.delegate = self
     }
     
     private func setupUi() {
-        noSavedCitiesLabel.isHidden = !savedCities.isEmpty ? true : false
+        noSavedCitiesLabel.isHidden = !savedCities.isEmpty
         
         let placeholderAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont.systemFont(ofSize: 17),
@@ -40,7 +42,7 @@ class SearchViewController: UIViewController, UITextFieldDelegate {
     //MARK: -UITextFieldDelegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         cityForSearching = textField.text
-        searchTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
 }
