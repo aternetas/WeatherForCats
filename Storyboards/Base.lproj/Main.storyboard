@@ -22,25 +22,25 @@
                                 <rect key="frame" x="-4" y="0.0" width="401" height="852"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mersin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaY-Lz-70e">
-                                <rect key="frame" x="15" y="110.00000000000001" width="363" height="40.666666666666671"/>
+                                <rect key="frame" x="15" y="129" width="363" height="40.666666666666657"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="34"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="22°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y9d-Oy-Pbw">
-                                <rect key="frame" x="134.33333333333331" y="162.66666666666666" width="140.33333333333331" height="114.66666666666666"/>
+                                <rect key="frame" x="134.33333333333331" y="181.66666666666666" width="140.33333333333331" height="114.66666666666666"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="96"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="max: 27°   min: 16°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRe-LM-gfl">
-                                <rect key="frame" x="40" y="301.33333333333331" width="313" height="24"/>
+                                <rect key="frame" x="40" y="320.33333333333331" width="313" height="24"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" name="TextColor1"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" verticalCompressionResistancePriority="749" image="Cat2" translatesAutoresizingMaskIntoConstraints="NO" id="NMT-AO-O24">
-                                <rect key="frame" x="15" y="350.33333333333326" width="363" height="417.66666666666674"/>
+                                <rect key="frame" x="15" y="369.33333333333326" width="363" height="398.66666666666674"/>
                             </imageView>
                             <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O4q-2U-n6u">
                                 <rect key="frame" x="0.0" y="517" width="393" height="252"/>
@@ -162,7 +162,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13U-O1-5r7">
-                                <rect key="frame" x="327.33333333333331" y="88" width="49.666666666666686" height="35"/>
+                                <rect key="frame" x="327.33333333333331" y="59" width="49.666666666666686" height="35"/>
                                 <color key="tintColor" name="TextColor2"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
@@ -178,14 +178,14 @@
                             <constraint firstItem="NMT-AO-O24" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1bR-UK-4DN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NMT-AO-O24" secondAttribute="bottom" constant="50" id="6DX-Gj-5uk"/>
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="GXW-mY-inh"/>
-                            <constraint firstItem="13U-O1-5r7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="HVJ-45-D9m"/>
+                            <constraint firstItem="13U-O1-5r7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HVJ-45-D9m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaY-Lz-70e" secondAttribute="trailing" constant="15" id="Mfz-ZR-Pvl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zRe-LM-gfl" secondAttribute="trailing" constant="40" id="Pv8-qC-WDq"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13U-O1-5r7" secondAttribute="trailing" constant="16" id="Rqn-xH-zum"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y9d-Oy-Pbw" secondAttribute="trailing" priority="900" constant="30" id="XGY-Hf-dvj"/>
                             <constraint firstItem="DRU-6k-5ry" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-4" id="XOE-Ph-gWX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O4q-2U-n6u" secondAttribute="bottom" id="bAw-pI-DsV"/>
-                            <constraint firstItem="NaY-Lz-70e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="51" id="gJh-ER-U6q"/>
+                            <constraint firstItem="NaY-Lz-70e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="70" id="gJh-ER-U6q"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NMT-AO-O24" secondAttribute="trailing" constant="15" id="gMs-eJ-kXs"/>
                             <constraint firstItem="NMT-AO-O24" firstAttribute="top" secondItem="zRe-LM-gfl" secondAttribute="bottom" constant="25" id="gb8-tl-f9E"/>
                             <constraint firstItem="O4q-2U-n6u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gki-fj-EUY"/>
@@ -231,7 +231,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="374"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Какой город?" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Какой город?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
                                 <rect key="frame" x="4" y="59" width="393" height="56"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="search" textContentType="address-level2"/>
                                 <connections>

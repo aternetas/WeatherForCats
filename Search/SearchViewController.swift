@@ -11,6 +11,8 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet weak var citySearchBar: UISearchBar!
     
+    var delegate: SearchViewControllerProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,7 +20,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let cityForSearching = searchBar.text
-        dismiss(animated: true)
+        delegate.update(cityForSearching: searchBar.text)
+        navigationController?.popViewController(animated: true)
     }
 }

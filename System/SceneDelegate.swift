@@ -24,11 +24,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
 //            let weatherRepository = WeatherRepository()
 //            mainViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
+            mainViewController.weatherService = WeatherServiceMock()
             
             let mainNavigationController = UINavigationController(rootViewController: mainViewController)
-            
-            let weatherServiceMock = WeatherServiceMock()
-            mainViewController.weatherService = weatherServiceMock
+            mainNavigationController.isNavigationBarHidden = true
             
             let cityService = CityService()
             mainViewController.cityService = cityService
