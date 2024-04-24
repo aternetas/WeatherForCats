@@ -161,6 +161,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="13U-O1-5r7">
+                                <rect key="frame" x="327.33333333333331" y="88" width="49.666666666666686" height="35"/>
+                                <color key="tintColor" name="TextColor2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <segue destination="KMq-jj-GWc" kind="presentation" id="31O-ui-7uf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -169,8 +178,10 @@
                             <constraint firstItem="NMT-AO-O24" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1bR-UK-4DN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NMT-AO-O24" secondAttribute="bottom" constant="50" id="6DX-Gj-5uk"/>
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="GXW-mY-inh"/>
+                            <constraint firstItem="13U-O1-5r7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="29" id="HVJ-45-D9m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaY-Lz-70e" secondAttribute="trailing" constant="15" id="Mfz-ZR-Pvl"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zRe-LM-gfl" secondAttribute="trailing" constant="40" id="Pv8-qC-WDq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="13U-O1-5r7" secondAttribute="trailing" constant="16" id="Rqn-xH-zum"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Y9d-Oy-Pbw" secondAttribute="trailing" priority="900" constant="30" id="XGY-Hf-dvj"/>
                             <constraint firstItem="DRU-6k-5ry" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-4" id="XOE-Ph-gWX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="O4q-2U-n6u" secondAttribute="bottom" id="bAw-pI-DsV"/>
@@ -193,7 +204,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <tabBarItem key="tabBarItem" image="Day/200" springLoaded="YES" id="DWM-wt-5PE">
+                    <tabBarItem key="tabBarItem" springLoaded="YES" id="DWM-wt-5PE">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -210,6 +221,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55.725190839694655" y="3.5211267605633805"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wge-Ho-OqC">
+            <objects>
+                <viewController id="KMq-jj-GWc" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ko6-6F-27M">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Какой город?" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
+                                <rect key="frame" x="4" y="0.0" width="393" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KMq-jj-GWc" id="BIJ-kM-WaG"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AKU-md-ACi"/>
+                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
+                        <constraints>
+                            <constraint firstItem="xSn-b3-fXg" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" constant="4" id="H0c-hj-tQr"/>
+                            <constraint firstItem="xSn-b3-fXg" firstAttribute="top" secondItem="AKU-md-ACi" secondAttribute="top" id="XXN-CB-y6h"/>
+                            <constraint firstItem="xSn-b3-fXg" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" constant="4" id="xSI-jT-WwO"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="393" height="56"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-vE-blI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1044" y="-51"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
@@ -244,7 +285,7 @@
         <image name="116" width="64" height="64"/>
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
-        <image name="Day/200" width="64" height="64"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <namedColor name="HistoryCellBackground">
             <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -260,6 +301,9 @@
         <namedColor name="WeatherBackground">
             <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
