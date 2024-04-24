@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Погода для котов-->
+        <scene sceneID="4XI-cE-2r9">
+            <objects>
+                <viewController storyboardIdentifier="SettingsViewController" id="Xts-nY-yDw" customClass="SettingsViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2gs-pV-Fa1">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Погода для котов" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RAc-8Z-PhR">
+                                <rect key="frame" x="15" y="69" width="363" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <color key="textColor" name="TextColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="QXm-Zs-ecx">
+                                <rect key="frame" x="15" y="125.66666666666669" width="363" height="34"/>
+                                <color key="backgroundColor" name="SearchFieldBackground"/>
+                                <color key="tintColor" name="TextColor2"/>
+                                <color key="textColor" name="TextColor1"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="go" textContentType="address-level2"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Нет сохранённых городов" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqQ-Yj-6xo">
+                                <rect key="frame" x="92.000000000000014" y="415.66666666666669" width="209.33333333333337" height="21"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                <color key="textColor" name="TextColor1"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Eo5-hk-ON4"/>
+                        <color key="backgroundColor" name="MainBackground"/>
+                        <color key="tintColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="Eo5-hk-ON4" firstAttribute="trailing" secondItem="RAc-8Z-PhR" secondAttribute="trailing" constant="15" id="2AW-jV-32n"/>
+                            <constraint firstItem="EqQ-Yj-6xo" firstAttribute="centerX" secondItem="2gs-pV-Fa1" secondAttribute="centerX" id="2oB-51-hFF"/>
+                            <constraint firstItem="Eo5-hk-ON4" firstAttribute="trailing" secondItem="QXm-Zs-ecx" secondAttribute="trailing" constant="15" id="4IV-Dx-VSj"/>
+                            <constraint firstItem="RAc-8Z-PhR" firstAttribute="top" secondItem="Eo5-hk-ON4" secondAttribute="top" constant="10" id="OEf-ay-FzU"/>
+                            <constraint firstItem="RAc-8Z-PhR" firstAttribute="leading" secondItem="Eo5-hk-ON4" secondAttribute="leading" constant="15" id="gyO-MQ-tZN"/>
+                            <constraint firstItem="EqQ-Yj-6xo" firstAttribute="centerY" secondItem="2gs-pV-Fa1" secondAttribute="centerY" id="hI0-aq-FqO"/>
+                            <constraint firstItem="QXm-Zs-ecx" firstAttribute="leading" secondItem="Eo5-hk-ON4" secondAttribute="leading" constant="15" id="qy4-xN-8hS"/>
+                            <constraint firstItem="QXm-Zs-ecx" firstAttribute="top" secondItem="RAc-8Z-PhR" secondAttribute="bottom" constant="23" id="sDz-pc-ork"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Погода для котов" id="ryZ-6a-6SQ"/>
+                    <connections>
+                        <outlet property="noSavedCitiesLabel" destination="EqQ-Yj-6xo" id="qte-4a-swC"/>
+                        <outlet property="searchTextField" destination="QXm-Zs-ecx" id="EqG-GT-inX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UZs-6T-MJh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1359.5419847328244" y="736.61971830985919"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="MainBackground">
+            <color red="0.21176470588235294" green="0.16470588235294117" blue="0.51764705882352946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="SearchFieldBackground">
+            <color red="0.1803921568627451" green="0.20000000000000001" blue="0.35294117647058826" alpha="0.68999999761581421" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="TextColor2">
+            <color red="0.92156862745098034" green="0.92156862745098034" blue="0.96078431372549022" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
