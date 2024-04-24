@@ -16,11 +16,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
             let mainStoryboard = UIStoryboard(name: "Main", bundle: .main)
-            let searchStoryboard = UIStoryboard(name: "Search", bundle: .main)
+            let settingsStoryboard = UIStoryboard(name: "Settings", bundle: .main)
 
             let initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
             let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            let searchViewController = searchStoryboard.instantiateViewController(withIdentifier: "SearchViewController") as! SettingsViewController
+            let settingsViewController = settingsStoryboard.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsViewController
             
 //            let weatherRepository = WeatherRepository()
 //            mainViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
@@ -28,9 +28,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let cityService = CityService()
             mainViewController.cityService = cityService
-            searchViewController.cityService = cityService
+            settingsViewController.cityService = cityService
             
-            initialViewController.setViewControllers([mainViewController, searchViewController], animated: false)
+            initialViewController.setViewControllers([mainViewController, settingsViewController], animated: false)
             
             window.rootViewController = initialViewController
             self.window = window

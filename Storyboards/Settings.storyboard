@@ -12,7 +12,7 @@
         <!--Погода для котов-->
         <scene sceneID="4XI-cE-2r9">
             <objects>
-                <viewController storyboardIdentifier="SearchViewController" id="Xts-nY-yDw" customClass="SearchViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="Xts-nY-yDw" customClass="SettingsViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2gs-pV-Fa1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
