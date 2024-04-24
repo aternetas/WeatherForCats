@@ -10,7 +10,9 @@ import UIKit
 class SearchViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var noSavedCitiesLabel: UILabel!
+    
     var cityService: CityServiceProtocol?
+    
     private var cityForSearching: String?
     private var savedCities: [String] = []
     

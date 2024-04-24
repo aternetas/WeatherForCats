@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -16,10 +16,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var hourlyForecastButton: UIButton!
     @IBOutlet private weak var threeDaysForecastButton: UIButton!
     @IBOutlet private weak var separator: UIView!
-    private var underlineView = UIView()
+        
     var weatherService: WeatherServiceProtocol!
     var cityService: CityServiceProtocol!
-  
+    
+    private var underlineView = UIView()
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
     private var forecasts: [WeatherInfoCellModel] = []
