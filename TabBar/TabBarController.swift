@@ -21,13 +21,13 @@ class TabBarController: UITabBarController {
         
         if let items = tabBar.items {
             items[0].image = UIImage(systemName: "cloud")?.withBaselineOffset(fromBottom: 15.0)
-            items[1].image = UIImage(systemName: "magnifyingglass")?.withBaselineOffset(fromBottom: 15.0)
+            items[1].image = UIImage(systemName: "gearshape")?.withBaselineOffset(fromBottom: 15.0)
         }
     }
     
-    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-        if let items = tabBar.items {
-            UserDefaults.standard.setValue(items.firstIndex(of: item), forKey: "selectedTabBarIndex")
-        }
-    }
+//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//        if let items = tabBar.items {
+//            UserDefaults.standard.setValue(items.firstIndex(of: item), forKey: "selectedTabBarIndex")
+//        }
+//    }
 }

@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
             let initialViewController = mainStoryboard.instantiateViewController(withIdentifier: "TabBarController") as! TabBarController
             let mainViewController = mainStoryboard.instantiateViewController(withIdentifier: "MainViewController") as! MainViewController
-            let searchViewController = searchStoryboard.instantiateViewController(withIdentifier: "SearchViewController") as! SearchViewController
+            let searchViewController = searchStoryboard.instantiateViewController(withIdentifier: "SearchViewController") as! SettingsViewController
             
 //            let weatherRepository = WeatherRepository()
 //            mainViewController.weatherService = WeatherService(weatherRepository: weatherRepository)
@@ -31,7 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             searchViewController.cityService = cityService
             
             initialViewController.setViewControllers([mainViewController, searchViewController], animated: false)
-            initialViewController.selectedIndex = UserDefaults.standard.integer(forKey: "selectedTabBarIndex")
             
             window.rootViewController = initialViewController
             self.window = window
