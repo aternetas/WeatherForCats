@@ -13,6 +13,8 @@ protocol SearchViewControllerProtocol {
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol {
     
+    private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
+    
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -91,7 +93,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func getData(city: String?) {
-        weatherService.getCurrentWeather(city: city ?? "Moscow") { model in
+        weatherService.getCurrentWeather(city: city ?? DEFAULT_CITY_FOR_SEARCHING) { model in
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
 
