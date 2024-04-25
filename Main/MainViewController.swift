@@ -38,10 +38,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     @IBAction func onSearchIconClick(_ sender: Any) {
-        guard let navigationController = navigationController else { return }
         if let searchViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
             searchViewController.delegate = self
-            navigationController.pushViewController(searchViewController, animated: true)
+            searchViewController.modalPresentationStyle = .automatic
+            present(searchViewController, animated: true)
         }
     }
     

@@ -228,33 +228,46 @@
             <objects>
                 <viewController storyboardIdentifier="SearchViewController" id="KMq-jj-GWc" customClass="SearchViewController" customModule="WeatherForCats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ko6-6F-27M">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="374"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" searchBarStyle="minimal" placeholder="Какой город?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
+                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gan-nx-Ovb">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                            </view>
+                            <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Какой город?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
                                 <rect key="frame" x="4" y="59" width="393" height="56"/>
+                                <color key="tintColor" name="AccentColor"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" keyboardType="alphabet" returnKeyType="search" textContentType="address-level2"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
                                 <connections>
                                     <outlet property="delegate" destination="KMq-jj-GWc" id="BIJ-kM-WaG"/>
                                 </connections>
                             </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AKU-md-ACi"/>
-                        <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                         <constraints>
+                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="7QC-Ua-aer"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" constant="4" id="H0c-hj-tQr"/>
+                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" id="SEm-PY-pPK"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="top" secondItem="AKU-md-ACi" secondAttribute="top" id="XXN-CB-y6h"/>
+                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="top" secondItem="Ko6-6F-27M" secondAttribute="top" id="YFH-gb-ROB"/>
+                            <constraint firstItem="AKU-md-ACi" firstAttribute="bottom" secondItem="Gan-nx-Ovb" secondAttribute="bottom" id="tQt-XB-04L"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" constant="4" id="xSI-jT-WwO"/>
                         </constraints>
                     </view>
-                    <size key="freeformSize" width="393" height="374"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="393" height="100"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="citySearchBar" destination="xSn-b3-fXg" id="RnP-uF-fbb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-vE-blI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1043.5114503816794" y="60.563380281690144"/>
+            <point key="canvasLocation" x="1041.9847328244275" y="3.5211267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
@@ -289,6 +302,9 @@
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="HistoryCellBackground">
             <color red="0.28235294117647058" green="0.19215686274509805" blue="0.61568627450980395" alpha="0.60000002384185791" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
@@ -304,11 +320,11 @@
         <namedColor name="WeatherBackground">
             <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
-        <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -19,12 +19,13 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
         citySearchBar.delegate = self
     }
     
+    //MARK: -UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
             return
         }
         
         delegate.update(cityForSearching: searchBar.text)
-        navigationController?.popViewController(animated: true)
+        dismiss(animated: true)
     }
 }
