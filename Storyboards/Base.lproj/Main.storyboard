@@ -170,6 +170,15 @@
                                     <action selector="onSearchIconClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fC8-52-61m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19s-Tr-LMp">
+                                <rect key="frame" x="325" y="100" width="52" height="35"/>
+                                <color key="tintColor" name="TextColor2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                <connections>
+                                    <action selector="onStarButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pEv-Lz-jQ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -177,6 +186,8 @@
                             <constraint firstItem="DRU-6k-5ry" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="19C-9f-jeT"/>
                             <constraint firstItem="NMT-AO-O24" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1bR-UK-4DN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NMT-AO-O24" secondAttribute="bottom" constant="50" id="6DX-Gj-5uk"/>
+                            <constraint firstItem="19s-Tr-LMp" firstAttribute="top" secondItem="13U-O1-5r7" secondAttribute="bottom" constant="6" id="8GM-OP-mWv"/>
+                            <constraint firstItem="19s-Tr-LMp" firstAttribute="trailing" secondItem="13U-O1-5r7" secondAttribute="trailing" id="Af6-W2-BXE"/>
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="GXW-mY-inh"/>
                             <constraint firstItem="13U-O1-5r7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HVJ-45-D9m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaY-Lz-70e" secondAttribute="trailing" constant="15" id="Mfz-ZR-Pvl"/>
@@ -267,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-vE-blI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041.9847328244275" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1240" y="4"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
@@ -302,6 +313,7 @@
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

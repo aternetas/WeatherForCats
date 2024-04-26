@@ -18,6 +18,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var weatherForecastView: UIView!
     @IBOutlet private weak var hourlyForecastButton: UIButton!
@@ -45,6 +46,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             searchViewController.modalPresentationStyle = .automatic
             present(searchViewController, animated: true)
         }
+    }
+    
+    @IBAction func onStarButtonClick(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        sender.setImage(UIImage(systemName: "star"), for: .normal)
+        sender.setImage(UIImage(systemName: "star.fill"), for: .selected)
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
