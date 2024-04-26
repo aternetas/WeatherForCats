@@ -50,8 +50,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func onStarButtonClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
         sender.setImage(UIImage(systemName: "star"), for: .normal)
         sender.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        
+        if let city = city.text {
+            sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
+        }
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {

@@ -33,6 +33,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             mainViewController.cityService = cityService
             settingsViewController.cityService = cityService
             
+//            UserDefaults.standard.setValue([], forKey: "favouriteCities")
+            
             initialViewController.setViewControllers([mainNavigationController, settingsViewController], animated: false)
             
             window.rootViewController = initialViewController
