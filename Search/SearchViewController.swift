@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol SearchViewControllerProtocol {
+    func update(cityForSearching: String?)
+}
+
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
     @IBOutlet private weak var citySearchBar: UISearchBar!
     
-    var delegate: SearchViewControllerProtocol!
+    var delegate: SearchViewControllerProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +29,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate {
             return
         }
         
-        delegate.update(cityForSearching: searchBar.text)
+        delegate?.update(cityForSearching: searchBar.text)
         dismiss(animated: true)
     }
 }
