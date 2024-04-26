@@ -9,7 +9,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UISearchBarDelegate {
 
-    @IBOutlet weak var citySearchBar: UISearchBar!
+    @IBOutlet private weak var citySearchBar: UISearchBar!
     
     var delegate: SearchViewControllerProtocol!
     
