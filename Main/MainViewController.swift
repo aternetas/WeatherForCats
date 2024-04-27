@@ -15,6 +15,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     
+    @IBOutlet weak var favouriteCityButton: UIButton!
+    
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var weatherForecastView: UIView!
     @IBOutlet private weak var hourlyForecastButton: UIButton!
@@ -46,13 +48,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func onStarButtonClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
-        
-        sender.setImage(UIImage(systemName: "star"), for: .normal)
-        sender.setImage(UIImage(systemName: "star.fill"), for: .selected)
-        
         if let city = city.text {
             sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
         }
+        
+        setupFavouriteCityButton()
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
@@ -92,12 +92,21 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func setupWeather(model: WeatherModel) {
         DispatchQueue.main.async {
             self.city.text = model.city
+            self.setupFavouriteCityButton()
+            
             self.currentTemperature.text = "\(model.currentTemperature)°"
             self.maxAndMinTemperatureForToday.text =
             "max: \(model.dailyForecast[0].maxTemperatureForToday)°   min: \(model.dailyForecast[0].minTemperatureForToday)°"
             
             self.underlineView.isHidden = false
         }
+    }
+    
+    private func setupFavouriteCityButton() {
+        favouriteCityButton.isSelected = cityService.getCities().contains(where: {$0 == city.text} )
+        
+        favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
     }
     
     private func getData(cityForSearching: String) {

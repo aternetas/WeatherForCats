@@ -223,6 +223,7 @@
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
                         <outlet property="currentTemperature" destination="Y9d-Oy-Pbw" id="5Wh-Eq-woa"/>
+                        <outlet property="favouriteCityButton" destination="19s-Tr-LMp" id="yCO-RG-uvh"/>
                         <outlet property="hourlyForecastButton" destination="B8h-a6-eDi" id="T0t-R5-xDj"/>
                         <outlet property="maxAndMinTemperatureForToday" destination="zRe-LM-gfl" id="s3m-vt-YEW"/>
                         <outlet property="separator" destination="FjN-kk-hyK" id="135-fj-wjB"/>

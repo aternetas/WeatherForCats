@@ -23,7 +23,7 @@ class CityService: CityServiceProtocol {
     }
     
     func getCities() -> [String] {
-        UserDefaults.standard.array(forKey: FAVOURITE_CITIES_KEY) as? [String] ?? []
+        UserDefaults.standard.stringArray(forKey: FAVOURITE_CITIES_KEY) ?? []
     }
     
     func removeCity(city: String) {
