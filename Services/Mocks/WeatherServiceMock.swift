@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherServiceMock: WeatherServiceProtocol {
     func getCurrentWeather(city: String, completionHandler: @escaping (WeatherModel) -> ()) {
-        let model = WeatherModel(city: "\(city)",
+        let model = WeatherModel(city: city,
                                  currentTemperature: 0.0,
                                  weatherType: .blowingSnow,
                                  isDay: true,
