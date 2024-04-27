@@ -7,7 +7,10 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {    
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol {
+    
+    private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
+    
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -16,7 +19,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var hourlyForecastButton: UIButton!
     @IBOutlet private weak var threeDaysForecastButton: UIButton!
     @IBOutlet private weak var separator: UIView!
-        
+    
     var weatherService: WeatherServiceProtocol!
     var cityService: CityServiceProtocol!
     
@@ -29,7 +32,15 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         setupUi()
-        getData()
+        getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
+    }
+    
+    @IBAction func onSearchIconClick(_ sender: Any) {
+        if let searchViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
+            searchViewController.delegate = self
+            searchViewController.modalPresentationStyle = .automatic
+            present(searchViewController, animated: true)
+        }
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
@@ -77,8 +88,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    private func getData() {
-        weatherService.getCurrentWeather(city: "Moscow") { model in
+    private func getData(cityForSearching: String) {
+        weatherService.getCurrentWeather(city: cityForSearching) { model in
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
 
@@ -99,6 +110,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
+    }
+    //MARK: -SearchViewControllerDelegat
+    func update(cityForSearching: String?) {
+        guard let cityForSearching = cityForSearching else { return }
+        
+        getData(cityForSearching: cityForSearching)
     }
     
     //MARK: -UICollectionViewDataSource
