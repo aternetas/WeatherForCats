@@ -41,6 +41,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBAction func onSearchIconClick(_ sender: Any) {
         if let searchViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
             searchViewController.delegate = self
+            searchViewController.cityService = cityService
             searchViewController.modalPresentationStyle = .automatic
             present(searchViewController, animated: true)
         }
@@ -103,7 +104,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func setupFavouriteCityButton() {
-        favouriteCityButton.isSelected = cityService.getCities().contains(where: {$0 == city.text} )
+        favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
         
         favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
         favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
