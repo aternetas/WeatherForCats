@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol SearchViewControllerProtocol {
-    func update(cityForSearching: String?)
-}
-
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol {
     
     private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
@@ -37,7 +33,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         setupUi()
-        getData(city: nil)
+        getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
     }
     
     @IBAction func onSearchIconClick(_ sender: Any) {
@@ -104,8 +100,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    private func getData(city: String?) {
-        weatherService.getCurrentWeather(city: city ?? DEFAULT_CITY_FOR_SEARCHING) { model in
+    private func getData(cityForSearching: String) {
+        weatherService.getCurrentWeather(city: cityForSearching) { model in
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
 
@@ -129,7 +125,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     //MARK: -SearchViewControllerDelegat
     func update(cityForSearching: String?) {
-        getData(city: cityForSearching)
+        guard let cityForSearching = cityForSearching else { return }
+        
+        getData(cityForSearching: cityForSearching)
     }
     
     //MARK: -UICollectionViewDataSource
