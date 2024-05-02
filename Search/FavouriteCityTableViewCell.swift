@@ -19,6 +19,12 @@ class FavouriteCityTableViewCell: UITableViewCell {
     func bind(city: String) {
         cityLabel.text = city
     }
+    
+    func setupUI() {
+        layer.cornerRadius = 30
+        layer.borderColor = UIColor(resource: .white).cgColor
+        layer.borderWidth = 4
+    }
 
     //MARK: -UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool) {

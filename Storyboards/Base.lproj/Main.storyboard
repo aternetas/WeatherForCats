@@ -243,49 +243,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gan-nx-Ovb">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="krE-cb-PIG">
-                                        <rect key="frame" x="0.0" y="125" width="393" height="693"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="separatorColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="FavouriteCityTableViewCell" rowHeight="100" id="VKM-Iz-cKC" customClass="FavouriteCityTableViewCell" customModule="WeatherForCats" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="50" width="393" height="100"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKM-Iz-cKC" id="Ml9-IL-pGT">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
-                                                            <rect key="frame" x="20" y="11" width="353" height="78"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottomMargin" secondItem="g0a-cT-NpS" secondAttribute="bottom" id="5gW-Pk-ubE"/>
-                                                        <constraint firstAttribute="trailingMargin" secondItem="g0a-cT-NpS" secondAttribute="trailing" id="Lcm-Uf-Otg"/>
-                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="Ml9-IL-pGT" secondAttribute="leadingMargin" id="MMZ-pq-fld"/>
-                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="Ml9-IL-pGT" secondAttribute="topMargin" id="flH-kh-RgN"/>
-                                                    </constraints>
-                                                </tableViewCellContentView>
-                                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
-                                                <connections>
-                                                    <outlet property="cityLabel" destination="g0a-cT-NpS" id="lf5-Yn-Ng2"/>
-                                                </connections>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="krE-cb-PIG" secondAttribute="trailing" id="Dcf-9q-5mA"/>
-                                    <constraint firstItem="krE-cb-PIG" firstAttribute="leading" secondItem="Gan-nx-Ovb" secondAttribute="leading" id="rPl-at-1Rx"/>
-                                </constraints>
-                            </view>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Какой город?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
                                 <rect key="frame" x="4" y="59" width="393" height="56"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -298,17 +255,46 @@
                                     <outlet property="delegate" destination="KMq-jj-GWc" id="BIJ-kM-WaG"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="krE-cb-PIG">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="FavouriteCityTableViewCell" rowHeight="100" id="VKM-Iz-cKC" customClass="FavouriteCityTableViewCell" customModule="WeatherForCats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKM-Iz-cKC" id="Ml9-IL-pGT">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
+                                                    <rect key="frame" x="20" y="11" width="353" height="78"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="g0a-cT-NpS" secondAttribute="bottom" id="5gW-Pk-ubE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="g0a-cT-NpS" secondAttribute="trailing" id="Lcm-Uf-Otg"/>
+                                                <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="Ml9-IL-pGT" secondAttribute="leadingMargin" id="MMZ-pq-fld"/>
+                                                <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="Ml9-IL-pGT" secondAttribute="topMargin" id="flH-kh-RgN"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                                        <connections>
+                                            <outlet property="cityLabel" destination="g0a-cT-NpS" id="lf5-Yn-Ng2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AKU-md-ACi"/>
                         <constraints>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="7QC-Ua-aer"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="8WY-ZZ-QQA"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" constant="4" id="H0c-hj-tQr"/>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" id="SEm-PY-pPK"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="top" secondItem="xSn-b3-fXg" secondAttribute="bottom" id="HOs-1i-GzU"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="top" secondItem="AKU-md-ACi" secondAttribute="top" id="XXN-CB-y6h"/>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="top" secondItem="Ko6-6F-27M" secondAttribute="top" id="YFH-gb-ROB"/>
-                            <constraint firstItem="AKU-md-ACi" firstAttribute="bottom" secondItem="krE-cb-PIG" secondAttribute="bottom" id="Z8P-rt-A0C"/>
-                            <constraint firstItem="krE-cb-PIG" firstAttribute="top" secondItem="xSn-b3-fXg" secondAttribute="bottom" constant="10" id="b1h-iw-zN6"/>
-                            <constraint firstItem="AKU-md-ACi" firstAttribute="bottom" secondItem="Gan-nx-Ovb" secondAttribute="bottom" id="tQt-XB-04L"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" id="hqG-ux-bzU"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="bottom" secondItem="AKU-md-ACi" secondAttribute="bottom" id="jQi-Wq-vUS"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" constant="4" id="xSI-jT-WwO"/>
                         </constraints>
                     </view>

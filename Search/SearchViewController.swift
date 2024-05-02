@@ -47,7 +47,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         
         if let favouriteCities = cityService?.getCities() {
             cell.bind(city: favouriteCities[indexPath.item])
+            cell.setupUI()
         }
+        
         return cell
     }
 }
