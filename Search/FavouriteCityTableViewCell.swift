@@ -13,7 +13,6 @@ class FavouriteCityTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func bind(city: String) {
