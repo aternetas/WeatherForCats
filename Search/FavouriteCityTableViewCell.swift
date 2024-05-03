@@ -10,6 +10,7 @@ import UIKit
 class FavouriteCityTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var cellBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,6 +18,7 @@ class FavouriteCityTableViewCell: UITableViewCell {
     
     func bind(city: String) {
         cityLabel.text = city
+        cellBackground.layer.cornerRadius = 30
     }
 
     //MARK: -UITableViewCell

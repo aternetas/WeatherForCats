@@ -269,7 +269,7 @@
                                                     <rect key="frame" x="5" y="5" width="383" height="90"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
-                                                            <rect key="frame" x="10" y="10" width="363" height="70"/>
+                                                            <rect key="frame" x="20" y="10" width="353" height="70"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                             <color key="textColor" name="WeatherBackground"/>
                                                             <nil key="highlightedColor"/>
@@ -281,7 +281,7 @@
                                                         <bool key="isElement" value="YES"/>
                                                     </accessibility>
                                                     <constraints>
-                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="tMk-RZ-A9q" secondAttribute="leading" constant="10" id="9AO-5U-286"/>
+                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="tMk-RZ-A9q" secondAttribute="leading" constant="20" id="9AO-5U-286"/>
                                                         <constraint firstAttribute="bottom" secondItem="g0a-cT-NpS" secondAttribute="bottom" constant="10" id="CRh-CO-CCT"/>
                                                         <constraint firstAttribute="trailing" secondItem="g0a-cT-NpS" secondAttribute="trailing" constant="10" id="kXJ-xN-SSA"/>
                                                         <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="tMk-RZ-A9q" secondAttribute="top" constant="10" id="kr4-bC-W4R"/>
@@ -296,6 +296,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="cellBackground" destination="tMk-RZ-A9q" id="uhn-NX-TwU"/>
                                             <outlet property="cityLabel" destination="g0a-cT-NpS" id="lf5-Yn-Ng2"/>
                                         </connections>
                                     </tableViewCell>
