@@ -20,9 +20,9 @@ class FavouriteCityTableViewCell: UITableViewCell {
     }
     
     func setupUI() {
-        layer.cornerRadius = 30
-        layer.borderColor = UIColor(resource: .white).cgColor
-        layer.borderWidth = 4
+//        let view = subviews.first(where: { $0.accessibilityIdentifier == "CellBackground" } )
+//        view?.layer.cornerRadius = 30
+        
     }
 
     //MARK: -UITableViewCell
