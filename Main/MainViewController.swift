@@ -103,13 +103,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     }
     
-    private func setupFavouriteCityButton() {
-        favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
-        
-        favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
-        favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
-    }
-    
     private func getData(cityForSearching: String) {
         weatherService.getCurrentWeather(city: cityForSearching) { model in
             var unsortedHourlyModels = model.hourlyForecast
@@ -138,6 +131,13 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         guard let cityForSearching = cityForSearching else { return }
         
         getData(cityForSearching: cityForSearching)
+    }
+    
+    internal func setupFavouriteCityButton() {
+        favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
+        
+        favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
     }
     
     //MARK: -UICollectionViewDataSource

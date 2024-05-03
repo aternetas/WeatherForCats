@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchViewControllerProtocol {
     func update(cityForSearching: String?)
+    func setupFavouriteCityButton()
 }
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -41,6 +42,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
             self.cityService?.removeCity(city: self.favouriteCities[indexPath.item])
             self.getFavouritesCities()
             completionHandler(true)
+            self.delegate?.setupFavouriteCityButton()
             tableView.reloadData()
         }
     
