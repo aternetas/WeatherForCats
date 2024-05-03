@@ -265,49 +265,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XuU-5N-JnE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMk-RZ-A9q">
+                                                    <rect key="frame" x="5" y="5" width="383" height="90"/>
                                                     <subviews>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMk-RZ-A9q">
-                                                            <rect key="frame" x="20" y="5" width="353" height="90"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
-                                                                    <rect key="frame" x="10" y="10" width="333" height="70"/>
-                                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                                    <color key="textColor" name="WeatherBackground"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" name="HistoryCellBackground"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="CellBackground">
-                                                                <accessibilityTraits key="traits" none="YES"/>
-                                                                <bool key="isElement" value="YES"/>
-                                                            </accessibility>
-                                                            <constraints>
-                                                                <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="tMk-RZ-A9q" secondAttribute="leading" constant="10" id="9AO-5U-286"/>
-                                                                <constraint firstAttribute="bottom" secondItem="g0a-cT-NpS" secondAttribute="bottom" constant="10" id="CRh-CO-CCT"/>
-                                                                <constraint firstAttribute="trailing" secondItem="g0a-cT-NpS" secondAttribute="trailing" constant="10" id="kXJ-xN-SSA"/>
-                                                                <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="tMk-RZ-A9q" secondAttribute="top" constant="10" id="kr4-bC-W4R"/>
-                                                            </constraints>
-                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
+                                                            <rect key="frame" x="10" y="10" width="363" height="70"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                            <color key="textColor" name="WeatherBackground"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <color key="backgroundColor" name="HistoryCellBackground"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="CellBackground">
+                                                        <accessibilityTraits key="traits" none="YES"/>
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="tMk-RZ-A9q" secondAttribute="bottom" constant="5" id="LV1-LZ-GvB"/>
-                                                        <constraint firstAttribute="trailing" secondItem="tMk-RZ-A9q" secondAttribute="trailing" constant="20" id="lCF-kQ-Bba"/>
-                                                        <constraint firstItem="tMk-RZ-A9q" firstAttribute="leading" secondItem="XuU-5N-JnE" secondAttribute="leading" constant="20" id="s4U-Zm-YnD"/>
-                                                        <constraint firstItem="tMk-RZ-A9q" firstAttribute="top" secondItem="XuU-5N-JnE" secondAttribute="top" constant="5" id="zWx-HB-qrN"/>
+                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="tMk-RZ-A9q" secondAttribute="leading" constant="10" id="9AO-5U-286"/>
+                                                        <constraint firstAttribute="bottom" secondItem="g0a-cT-NpS" secondAttribute="bottom" constant="10" id="CRh-CO-CCT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="g0a-cT-NpS" secondAttribute="trailing" constant="10" id="kXJ-xN-SSA"/>
+                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="tMk-RZ-A9q" secondAttribute="top" constant="10" id="kr4-bC-W4R"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XuU-5N-JnE" firstAttribute="top" secondItem="Ml9-IL-pGT" secondAttribute="top" id="4g9-u3-rMl"/>
-                                                <constraint firstAttribute="trailing" secondItem="XuU-5N-JnE" secondAttribute="trailing" id="EgB-bu-0sR"/>
-                                                <constraint firstAttribute="bottom" secondItem="XuU-5N-JnE" secondAttribute="bottom" id="O2c-wV-5MG"/>
-                                                <constraint firstItem="XuU-5N-JnE" firstAttribute="leading" secondItem="Ml9-IL-pGT" secondAttribute="leading" id="wvy-mS-03T"/>
+                                                <constraint firstItem="tMk-RZ-A9q" firstAttribute="top" secondItem="Ml9-IL-pGT" secondAttribute="top" constant="5" id="6Xu-9i-2Vv"/>
+                                                <constraint firstAttribute="trailing" secondItem="tMk-RZ-A9q" secondAttribute="trailing" constant="5" id="E6k-Cm-4MF"/>
+                                                <constraint firstAttribute="bottom" secondItem="tMk-RZ-A9q" secondAttribute="bottom" constant="5" id="T7v-yw-CLT"/>
+                                                <constraint firstItem="tMk-RZ-A9q" firstAttribute="leading" secondItem="Ml9-IL-pGT" secondAttribute="leading" constant="5" id="hZH-Di-oaz"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemPurpleColor"/>
                                         <connections>
                                             <outlet property="cityLabel" destination="g0a-cT-NpS" id="lf5-Yn-Ng2"/>
                                         </connections>
@@ -316,6 +303,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AKU-md-ACi"/>
+                        <color key="backgroundColor" name="White"/>
                         <constraints>
                             <constraint firstItem="krE-cb-PIG" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="8WY-ZZ-QQA"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" constant="4" id="H0c-hj-tQr"/>
@@ -389,11 +377,11 @@
         <namedColor name="WeatherBackground">
             <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="White">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

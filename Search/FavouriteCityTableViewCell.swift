@@ -18,12 +18,6 @@ class FavouriteCityTableViewCell: UITableViewCell {
     func bind(city: String) {
         cityLabel.text = city
     }
-    
-    func setupUI() {
-//        let view = subviews.first(where: { $0.accessibilityIdentifier == "CellBackground" } )
-//        view?.layer.cornerRadius = 30
-        
-    }
 
     //MARK: -UITableViewCell
     override func setSelected(_ selected: Bool, animated: Bool) {

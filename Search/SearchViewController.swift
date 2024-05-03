@@ -71,7 +71,6 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         let cell = favouriteCitiesTableView.dequeueReusableCell(withIdentifier: "FavouriteCityTableViewCell", for: indexPath) as! FavouriteCityTableViewCell
         
         cell.bind(city: favouriteCities[indexPath.item])
-        cell.setupUI()
         
         return cell
     }
