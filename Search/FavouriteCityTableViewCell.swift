@@ -20,9 +20,4 @@ class FavouriteCityTableViewCell: UITableViewCell {
         cityLabel.text = city
         cellBackground.layer.cornerRadius = 30
     }
-
-    //MARK: -UITableViewCell
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
 }

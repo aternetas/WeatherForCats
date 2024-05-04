@@ -54,6 +54,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         return swipeConfiguration
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.update(cityForSearching: favouriteCities[indexPath.item])
+        dismiss(animated: true)
+    }
+    
     //MARK: -UISearchBarDelegate
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         if searchBar.text == "" {
