@@ -41,9 +41,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         let deleteAction = UIContextualAction(style: .destructive, title: "🗑") { _, _, completionHandler in
             self.cityService?.removeCity(city: self.favouriteCities[indexPath.item])
             self.getFavouritesCities()
-            completionHandler(true)
             self.delegate?.cityWasDeleted()
             tableView.reloadData()
+            completionHandler(true)
         }
     
         deleteAction.backgroundColor = UIColor.black
