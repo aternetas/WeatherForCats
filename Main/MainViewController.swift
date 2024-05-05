@@ -49,11 +49,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     @IBAction func onStarButtonClick(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        
         if let city = city.text {
             sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
         }
-        
-        setupFavouriteCityButtonState()
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
