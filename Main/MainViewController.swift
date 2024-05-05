@@ -77,6 +77,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         collectionView.delegate = self
         collectionView.backgroundColor = .clear
         
+        favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
+        favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
+        
         underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
         underlineView.backgroundColor = UIColor(resource: .underline)
         weatherForecastView.addSubview(underlineView)
@@ -135,9 +138,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     internal func setupFavouriteCityButton() {
         favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
-        
-        favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
-        favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
     }
     
     //MARK: -UICollectionViewDataSource
