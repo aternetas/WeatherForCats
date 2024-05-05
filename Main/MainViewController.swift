@@ -53,7 +53,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
         }
         
-        setupFavouriteCityButton()
+        setupFavouriteCityButtonState()
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
@@ -86,6 +86,10 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         underlineView.isHidden = true
     }
     
+    private func setupFavouriteCityButtonState() {
+        favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
+    }
+    
     private func calcFrameOfUnderline(parentFrame: CGRect) -> CGRect {
         let origin = CGPoint(x: parentFrame.minX, y: separator.frame.minY + 1)
         let size = CGSize(width: parentFrame.width, height: 1.0)
@@ -96,7 +100,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private func setupWeather(model: WeatherModel) {
         DispatchQueue.main.async {
             self.city.text = model.city
-            self.setupFavouriteCityButton()
+            self.setupFavouriteCityButtonState()
             
             self.currentTemperature.text = "\(model.currentTemperature)°"
             self.maxAndMinTemperatureForToday.text =
@@ -136,8 +140,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         getData(cityForSearching: cityForSearching)
     }
     
-    internal func setupFavouriteCityButton() {
-        favouriteCityButton.isSelected = cityService.getCities().contains(where: { $0 == city.text } )
+    func cityWasDeleted() {
+        setupFavouriteCityButtonState()
     }
     
     //MARK: -UICollectionViewDataSource
