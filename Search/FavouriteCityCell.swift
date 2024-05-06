@@ -7,10 +7,10 @@
 
 import UIKit
 
-class FavouriteCityTableViewCell: UITableViewCell {
+class FavouriteCityCell: UITableViewCell {
     
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var cellBackground: UIView!
+    @IBOutlet private weak var cityLabel: UILabel!
+    @IBOutlet private weak var cellBackground: UIView!
     
     func bind(city: String) {
         cityLabel.text = city

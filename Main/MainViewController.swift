@@ -15,7 +15,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     
-    @IBOutlet weak var favouriteCityButton: UIButton!
+    @IBOutlet private weak var favouriteCityButton: UIButton!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var weatherForecastView: UIView!

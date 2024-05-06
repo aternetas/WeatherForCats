@@ -75,7 +75,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = favouriteCitiesTableView.dequeueReusableCell(withIdentifier: "FavouriteCityTableViewCell", for: indexPath) as! FavouriteCityTableViewCell
+        let cell = favouriteCitiesTableView.dequeueReusableCell(withIdentifier: "FavouriteCityCell", for: indexPath) as! FavouriteCityCell
         
         cell.bind(city: favouriteCities[indexPath.item])
         
