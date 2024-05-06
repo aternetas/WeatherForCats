@@ -170,6 +170,15 @@
                                     <action selector="onSearchIconClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fC8-52-61m"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19s-Tr-LMp">
+                                <rect key="frame" x="325" y="100" width="52" height="35"/>
+                                <color key="tintColor" name="TextColor2"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="star" catalog="system"/>
+                                <connections>
+                                    <action selector="onStarButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pEv-Lz-jQ4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -177,6 +186,8 @@
                             <constraint firstItem="DRU-6k-5ry" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="19C-9f-jeT"/>
                             <constraint firstItem="NMT-AO-O24" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="1bR-UK-4DN"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NMT-AO-O24" secondAttribute="bottom" constant="50" id="6DX-Gj-5uk"/>
+                            <constraint firstItem="19s-Tr-LMp" firstAttribute="top" secondItem="13U-O1-5r7" secondAttribute="bottom" constant="6" id="8GM-OP-mWv"/>
+                            <constraint firstItem="19s-Tr-LMp" firstAttribute="trailing" secondItem="13U-O1-5r7" secondAttribute="trailing" id="Af6-W2-BXE"/>
                             <constraint firstItem="zRe-LM-gfl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="GXW-mY-inh"/>
                             <constraint firstItem="13U-O1-5r7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="HVJ-45-D9m"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NaY-Lz-70e" secondAttribute="trailing" constant="15" id="Mfz-ZR-Pvl"/>
@@ -212,6 +223,7 @@
                         <outlet property="city" destination="NaY-Lz-70e" id="hZx-6E-84c"/>
                         <outlet property="collectionView" destination="bBH-Lb-cSP" id="JmX-fi-qd5"/>
                         <outlet property="currentTemperature" destination="Y9d-Oy-Pbw" id="5Wh-Eq-woa"/>
+                        <outlet property="favouriteCityButton" destination="19s-Tr-LMp" id="yCO-RG-uvh"/>
                         <outlet property="hourlyForecastButton" destination="B8h-a6-eDi" id="T0t-R5-xDj"/>
                         <outlet property="maxAndMinTemperatureForToday" destination="zRe-LM-gfl" id="s3m-vt-YEW"/>
                         <outlet property="separator" destination="FjN-kk-hyK" id="135-fj-wjB"/>
@@ -231,10 +243,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gan-nx-Ovb">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
-                                <color key="backgroundColor" systemColor="systemGray4Color"/>
-                            </view>
                             <searchBar contentMode="redraw" searchBarStyle="prominent" placeholder="Какой город?" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSn-b3-fXg">
                                 <rect key="frame" x="4" y="59" width="393" height="56"/>
                                 <color key="tintColor" name="AccentColor"/>
@@ -247,15 +255,63 @@
                                     <outlet property="delegate" destination="KMq-jj-GWc" id="BIJ-kM-WaG"/>
                                 </connections>
                             </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="krE-cb-PIG">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="1" indentationWidth="10" reuseIdentifier="FavouriteCityCell" rowHeight="100" id="VKM-Iz-cKC" customClass="FavouriteCityCell" customModule="WeatherForCats" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VKM-Iz-cKC" id="Ml9-IL-pGT">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="100"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tMk-RZ-A9q">
+                                                    <rect key="frame" x="5" y="5" width="383" height="90"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Moscow" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0a-cT-NpS">
+                                                            <rect key="frame" x="20" y="10" width="353" height="70"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                            <color key="textColor" name="WeatherBackground"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" name="HistoryCellBackground"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="CellBackground">
+                                                        <accessibilityTraits key="traits" none="YES"/>
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="leading" secondItem="tMk-RZ-A9q" secondAttribute="leading" constant="20" id="9AO-5U-286"/>
+                                                        <constraint firstAttribute="bottom" secondItem="g0a-cT-NpS" secondAttribute="bottom" constant="10" id="CRh-CO-CCT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="g0a-cT-NpS" secondAttribute="trailing" constant="10" id="kXJ-xN-SSA"/>
+                                                        <constraint firstItem="g0a-cT-NpS" firstAttribute="top" secondItem="tMk-RZ-A9q" secondAttribute="top" constant="10" id="kr4-bC-W4R"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="tMk-RZ-A9q" firstAttribute="top" secondItem="Ml9-IL-pGT" secondAttribute="top" constant="5" id="6Xu-9i-2Vv"/>
+                                                <constraint firstAttribute="trailing" secondItem="tMk-RZ-A9q" secondAttribute="trailing" constant="5" id="E6k-Cm-4MF"/>
+                                                <constraint firstAttribute="bottom" secondItem="tMk-RZ-A9q" secondAttribute="bottom" constant="5" id="T7v-yw-CLT"/>
+                                                <constraint firstItem="tMk-RZ-A9q" firstAttribute="leading" secondItem="Ml9-IL-pGT" secondAttribute="leading" constant="5" id="hZH-Di-oaz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="cellBackground" destination="tMk-RZ-A9q" id="uhn-NX-TwU"/>
+                                            <outlet property="cityLabel" destination="g0a-cT-NpS" id="lf5-Yn-Ng2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AKU-md-ACi"/>
+                        <color key="backgroundColor" name="White"/>
                         <constraints>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="7QC-Ua-aer"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" id="8WY-ZZ-QQA"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="leading" secondItem="AKU-md-ACi" secondAttribute="leading" constant="4" id="H0c-hj-tQr"/>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" id="SEm-PY-pPK"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="top" secondItem="xSn-b3-fXg" secondAttribute="bottom" id="HOs-1i-GzU"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="top" secondItem="AKU-md-ACi" secondAttribute="top" id="XXN-CB-y6h"/>
-                            <constraint firstItem="Gan-nx-Ovb" firstAttribute="top" secondItem="Ko6-6F-27M" secondAttribute="top" id="YFH-gb-ROB"/>
-                            <constraint firstItem="AKU-md-ACi" firstAttribute="bottom" secondItem="Gan-nx-Ovb" secondAttribute="bottom" id="tQt-XB-04L"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" id="hqG-ux-bzU"/>
+                            <constraint firstItem="krE-cb-PIG" firstAttribute="bottom" secondItem="AKU-md-ACi" secondAttribute="bottom" id="jQi-Wq-vUS"/>
                             <constraint firstItem="xSn-b3-fXg" firstAttribute="trailing" secondItem="AKU-md-ACi" secondAttribute="trailing" constant="4" id="xSI-jT-WwO"/>
                         </constraints>
                     </view>
@@ -263,11 +319,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="citySearchBar" destination="xSn-b3-fXg" id="RnP-uF-fbb"/>
+                        <outlet property="favouriteCitiesTableView" destination="krE-cb-PIG" id="i5Q-G0-gDo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-vE-blI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1041.9847328244275" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1238.9312977099237" y="3.5211267605633805"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AdF-xL-8g6">
@@ -302,6 +359,7 @@
         <image name="Background1" width="390" height="844"/>
         <image name="Cat2" width="514" height="837"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -320,11 +378,11 @@
         <namedColor name="WeatherBackground">
             <color red="0.18431372549019609" green="0.17254901960784313" blue="0.30196078431372547" alpha="0.89200001955032349" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <namedColor name="White">
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray4Color">
-            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
