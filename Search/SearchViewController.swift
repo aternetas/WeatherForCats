@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SearchViewControllerProtocol {
+protocol SearchViewControllerProtocol: AnyObject {
     func update(cityForSearching: String?)
     func cityWasDeleted()
 }
@@ -17,7 +17,7 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     @IBOutlet private weak var citySearchBar: UISearchBar!
     @IBOutlet private weak var favouriteCitiesTableView: UITableView!
     
-    var delegate: SearchViewControllerProtocol?
+    weak var delegate: SearchViewControllerProtocol?
     var cityService: CityServiceProtocol?
     
     private var favouriteCities: [String] = []
@@ -38,10 +38,11 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
     //MARK: -UITableViewDelegate
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let deleteAction = UIContextualAction(style: .destructive, title: "🗑") { _, _, completionHandler in
-            self.cityService?.removeCity(city: self.favouriteCities[indexPath.item])
-            self.getFavouritesCities()
-            self.delegate?.cityWasDeleted()
+        let deleteAction = UIContextualAction(style: .destructive, title: "🗑") { [weak self] _, _, completionHandler in
+            guard let _self = self else { return }
+            _self.cityService?.removeCity(city: _self.favouriteCities[indexPath.item])
+            _self.getFavouritesCities()
+            _self.delegate?.cityWasDeleted()
             tableView.reloadData()
             completionHandler(true)
         }
