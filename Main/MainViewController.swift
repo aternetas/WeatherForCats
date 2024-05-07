@@ -97,28 +97,29 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     private func setupWeather(model: WeatherModel) {
-        DispatchQueue.main.async {
-            self.city.text = model.city
-            self.setupFavouriteCityButtonState()
+        DispatchQueue.main.async { [weak self] in
+            self?.city.text = model.city
+            self?.setupFavouriteCityButtonState()
             
-            self.currentTemperature.text = "\(model.currentTemperature)°"
-            self.maxAndMinTemperatureForToday.text =
+            self?.currentTemperature.text = "\(model.currentTemperature)°"
+            self?.maxAndMinTemperatureForToday.text =
             "max: \(model.dailyForecast[0].maxTemperatureForToday)°   min: \(model.dailyForecast[0].minTemperatureForToday)°"
             
-            self.underlineView.isHidden = false
+            self?.underlineView.isHidden = false
         }
     }
     
     private func getData(cityForSearching: String) {
-        weatherService.getCurrentWeather(city: cityForSearching) { model in
+        weatherService.getCurrentWeather(city: cityForSearching) { [weak self] model in
+            guard let _self = self else { return }
             var unsortedHourlyModels = model.hourlyForecast
             unsortedHourlyModels.append(HourlyWeatherModel(time: Date(), isDay: model.isDay, temp: model.currentTemperature, isNow: true, weatherType: model.weatherType))
 
-            self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
-            self.dailyForecasts = model.dailyForecast
+            _self.hourlyForecasts = unsortedHourlyModels.sorted { $0.time < $1.time }
+            _self.dailyForecasts = model.dailyForecast
             
-            self.fillOutTheForecast(forecastType: .hourlyForToday)
-            self.setupWeather(model: model)
+            _self.fillOutTheForecast(forecastType: .hourlyForToday)
+            _self.setupWeather(model: model)
         }
     }
     
@@ -128,8 +129,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             case .threeDays: dailyForecasts.map { WeatherInfoCellModel(dailyWeatherModel: $0) }
         }
         
-        DispatchQueue.main.async {
-            self.collectionView.reloadData()
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
         }
     }
     //MARK: -SearchViewControllerDelegat
