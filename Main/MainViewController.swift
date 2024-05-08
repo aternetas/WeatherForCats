@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol {
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol, CLLocationManagerDelegate {
     
     private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
     
@@ -26,6 +27,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var weatherService: WeatherServiceProtocol!
     var cityService: CityServiceProtocol!
     
+    private let locationManager = CLLocationManager()
+    
     private var underlineView = UIView()
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
@@ -36,6 +39,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         setupUi()
         getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction func onSearchIconClick(_ sender: Any) {
@@ -133,6 +144,16 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self?.collectionView.reloadData()
         }
     }
+    
+    //MARK: -CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            locationManager.stopUpdatingLocation()
+            
+            print(location.coordinate)
+        }
+    }
+    
     //MARK: -SearchViewControllerDelegat
     func update(cityForSearching: String?) {
         guard let cityForSearching = cityForSearching else { return }
