@@ -6,16 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
 
-class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol {
-    
-    private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
+class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol, CLLocationManagerDelegate {
     
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     
     @IBOutlet private weak var favouriteCityButton: UIButton!
+    @IBOutlet private weak var figureButton: UIButton!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var weatherForecastView: UIView!
@@ -26,6 +26,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     var weatherService: WeatherServiceProtocol!
     var cityService: CityServiceProtocol!
     
+    private let locationManager = CLLocationManager()
+    
     private var underlineView = UIView()
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
@@ -35,7 +37,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         setupUi()
-        getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
+        getData(cityForSearching: cityService.getCurrentCity())
     }
     
     @IBAction func onSearchIconClick(_ sender: Any) {
@@ -51,8 +53,14 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         sender.isSelected = !sender.isSelected
         
         if let city = city.text {
-            sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
+            sender.isSelected ? cityService.addFavouriteCity(city: city) : cityService.removeCityFromFavourites(city: city)
         }
+    }
+    
+    @IBAction func onFigureButtonClick(_ sender: UIButton) {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
@@ -78,6 +86,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
         favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
+        favouriteCityButton.configuration?.baseBackgroundColor = .clear
+        
+        figureButton.configuration?.baseBackgroundColor = .clear
         
         underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
         underlineView.backgroundColor = UIColor(resource: .underline)
@@ -133,14 +144,27 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             self?.collectionView.reloadData()
         }
     }
+    
+    //MARK: -CLLocationManagerDelegate
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first {
+            locationManager.stopUpdatingLocation()
+            location.convertToCityName { [weak self] cityName in
+                self?.cityService.setCurrentCity(city: cityName)
+                self?.getData(cityForSearching: cityName)
+            }
+        }
+    }
+    
     //MARK: -SearchViewControllerDelegat
     func update(cityForSearching: String?) {
         guard let cityForSearching = cityForSearching else { return }
         
+        cityService.setCurrentCity(city: cityForSearching)
         getData(cityForSearching: cityForSearching)
     }
     
-    func cityWasDeleted() {
+    func favouriteCityWasDeleted() {
         setupFavouriteCityButtonState()
     }
     
