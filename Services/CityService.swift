@@ -8,25 +8,37 @@
 import Foundation
 
 protocol CityServiceProtocol {
-    func addCity(city: String)
+    func setCurrentCity(city: String)
+    func getCurrentCity() -> String
+    func addFavouriteCity(city: String)
     func getCities() -> [String]
-    func removeCity(city: String)
+    func removeCityFromFavourites(city: String)
 }
 
 class CityService: CityServiceProtocol {
+    private let CURRENT_CITY_KEY = "currentCity"
     private let FAVOURITE_CITIES_KEY = "favouriteCities"
+    private let DEFAULT_CITY_FOR_SEARCHING = "Adana"
     
-    func addCity(city: String) {
-        var cities: [String] = getCities()
-        cities.append(city)
-        UserDefaults.standard.setValue(cities, forKey: FAVOURITE_CITIES_KEY)
+    func setCurrentCity(city: String) {
+        UserDefaults.standard.setValue(city, forKey: CURRENT_CITY_KEY)
+    }
+    
+    func getCurrentCity() -> String {
+        UserDefaults.standard.string(forKey: CURRENT_CITY_KEY) ?? DEFAULT_CITY_FOR_SEARCHING
     }
     
     func getCities() -> [String] {
         UserDefaults.standard.stringArray(forKey: FAVOURITE_CITIES_KEY) ?? []
     }
     
-    func removeCity(city: String) {
+    func addFavouriteCity(city: String) {
+        var cities: [String] = getCities()
+        cities.append(city)
+        UserDefaults.standard.setValue(cities, forKey: FAVOURITE_CITIES_KEY)
+    }
+    
+    func removeCityFromFavourites(city: String) {
         var cities: [String] = getCities()
         cities.removeAll(where: {$0 == city} )
         UserDefaults.standard.setValue(cities, forKey: FAVOURITE_CITIES_KEY)

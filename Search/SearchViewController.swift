@@ -9,7 +9,7 @@ import UIKit
 
 protocol SearchViewControllerProtocol: AnyObject {
     func update(cityForSearching: String?)
-    func cityWasDeleted()
+    func favouriteCityWasDeleted()
 }
 
 class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate {
@@ -40,9 +40,9 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDa
         
         let deleteAction = UIContextualAction(style: .destructive, title: "🗑") { [weak self] _, _, completionHandler in
             guard let _self = self else { return }
-            _self.cityService?.removeCity(city: _self.favouriteCities[indexPath.item])
+            _self.cityService?.removeCityFromFavourites(city: _self.favouriteCities[indexPath.item])
             _self.getFavouritesCities()
-            _self.delegate?.cityWasDeleted()
+            _self.delegate?.favouriteCityWasDeleted()
             tableView.reloadData()
             completionHandler(true)
         }

@@ -10,8 +10,6 @@ import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol, CLLocationManagerDelegate {
     
-    private let DEFAULT_CITY_FOR_SEARCHING = "Adana"
-    
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
@@ -39,7 +37,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.viewDidLoad()
         
         setupUi()
-        getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
+        getData(cityForSearching: cityService.getCurrentCity())
     }
     
     @IBAction func onSearchIconClick(_ sender: Any) {
@@ -55,7 +53,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         sender.isSelected = !sender.isSelected
         
         if let city = city.text {
-            sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
+            sender.isSelected ? cityService.addFavouriteCity(city: city) : cityService.removeCityFromFavourites(city: city)
         }
     }
     
@@ -152,6 +150,7 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let location = locations.first {
             locationManager.stopUpdatingLocation()
             location.convertToCityName { [weak self] cityName in
+                self?.cityService.setCurrentCity(city: cityName)
                 self?.getData(cityForSearching: cityName)
             }
         }
@@ -161,10 +160,11 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func update(cityForSearching: String?) {
         guard let cityForSearching = cityForSearching else { return }
         
+        cityService.setCurrentCity(city: cityForSearching)
         getData(cityForSearching: cityForSearching)
     }
     
-    func cityWasDeleted() {
+    func favouriteCityWasDeleted() {
         setupFavouriteCityButtonState()
     }
     
