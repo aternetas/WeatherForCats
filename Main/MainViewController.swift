@@ -10,13 +10,14 @@ import CoreLocation
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol, CLLocationManagerDelegate {
     
-    private let DEFAULT_CITY_FOR_SEARCHING = "Moscow"
+    private let DEFAULT_CITY_FOR_SEARCHING = "Adana"
     
     @IBOutlet private weak var city: UILabel!
     @IBOutlet private weak var currentTemperature: UILabel!
     @IBOutlet private weak var maxAndMinTemperatureForToday: UILabel!
     
     @IBOutlet private weak var favouriteCityButton: UIButton!
+    @IBOutlet private weak var figureButton: UIButton!
     
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var weatherForecastView: UIView!
@@ -41,14 +42,6 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         getData(cityForSearching: DEFAULT_CITY_FOR_SEARCHING)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
     @IBAction func onSearchIconClick(_ sender: Any) {
         if let searchViewController = storyboard?.instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController {
             searchViewController.delegate = self
@@ -64,6 +57,12 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let city = city.text {
             sender.isSelected ? cityService.addCity(city: city) : cityService.removeCity(city: city)
         }
+    }
+    
+    @IBAction func onFigureButtonClick(_ sender: UIButton) {
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     @IBAction private func onClickHourlyForecastButton(_ sender: UIButton) {
@@ -89,6 +88,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         favouriteCityButton.setImage(UIImage(systemName: "star.fill"), for: .selected)
         favouriteCityButton.setImage(UIImage(systemName: "star"), for: .normal)
+        favouriteCityButton.configuration?.baseBackgroundColor = .clear
+        
+        figureButton.configuration?.baseBackgroundColor = .clear
         
         underlineView.frame = calcFrameOfUnderline(parentFrame: hourlyForecastButton.frame)
         underlineView.backgroundColor = UIColor(resource: .underline)
@@ -149,8 +151,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let location = locations.first {
             locationManager.stopUpdatingLocation()
-            
-            print(location.coordinate)
+            location.convertToCityName { [weak self] cityName in
+                self?.getData(cityForSearching: cityName)
+            }
         }
     }
     
