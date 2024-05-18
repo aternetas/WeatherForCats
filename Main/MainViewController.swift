@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreLocation
+import Lottie
 
 class MainViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SearchViewControllerProtocol, CLLocationManagerDelegate {
     
@@ -32,6 +33,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     private var dailyForecasts: [DailyWeatherModel] = []
     private var hourlyForecasts: [HourlyWeatherModel] = []
     private var forecasts: [WeatherInfoCellModel] = []
+    
+    @IBOutlet private weak var shadowBackgroundView: UIView!
+    private lazy var animationLoader = LottieAnimationView(name: "LoadingWeatherCat")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -130,6 +134,9 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
             _self.dailyForecasts = model.dailyForecast
             
             _self.fillOutTheForecast(forecastType: .hourlyForToday)
+        
+            _self.removeAnimationLoaderSubview()
+            
             _self.setupWeather(model: model)
         }
     }
@@ -142,6 +149,31 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         DispatchQueue.main.async { [weak self] in
             self?.collectionView.reloadData()
+        }
+    }
+    
+    private func setAnimationLoader() {
+        animationLoader.frame = view.bounds
+        animationLoader.loopMode = .loop
+        animationLoader.animationSpeed = 2
+        animationLoader.tag = 12345
+        
+        shadowBackgroundView.backgroundColor = .darkGray
+        shadowBackgroundView.alpha = 0.6
+        shadowBackgroundView.isHidden = false
+        
+        view.addSubview(animationLoader)
+        animationLoader.play()
+    }
+    
+    private func removeAnimationLoaderSubview() {
+        DispatchQueue.main.async { [weak self] in
+            guard let _self = self else { return }
+            if _self.view.subviews.contains(where: { $0.tag == 12345 }) {
+                _self.animationLoader.removeFromSuperview()
+            }
+            
+            _self.shadowBackgroundView.isHidden = true
         }
     }
     
@@ -159,6 +191,8 @@ class MainViewController: UIViewController, UICollectionViewDataSource, UICollec
     //MARK: -SearchViewControllerDelegat
     func update(cityForSearching: String?) {
         guard let cityForSearching = cityForSearching else { return }
+        
+        setAnimationLoader()
         
         cityService.setCurrentCity(city: cityForSearching)
         getData(cityForSearching: cityForSearching)
